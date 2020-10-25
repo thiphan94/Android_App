@@ -7,19 +7,19 @@
     tools:context=".NewActivity">
 
     <TextView
-        android:layout_width="120dp"
-        android:layout_height="35dp"
+        android:layout_width="130dp"
+        android:layout_height="41dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="242dp"
         android:layout_marginRight="242dp"
-        android:layout_marginBottom="656dp"
+        android:layout_marginBottom="598dp"
         android:text="Income"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <Button
@@ -37,16 +37,17 @@
 
     <EditText
         android:id="@+id/editTextNumberDecimal2"
-        android:layout_width="wrap_content"
-        android:layout_height="65dp"
+        android:layout_width="184dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="650dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        android:layout_marginBottom="613dp"
         android:ems="10"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:textCursorDrawable="@color/teal_200" />
 
     <Button
         android:id="@+id/button3"
@@ -61,48 +62,47 @@
         android:text="ADD"
         app:backgroundTint="@color/teal_200" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="109dp"
+
+    <Button
+        android:id="@+id/pickDateBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="253dp"
-        android:layout_marginRight="253dp"
-        android:layout_marginBottom="571dp"
-        android:text="Date"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:layout_marginEnd="265dp"
+        android:layout_marginRight="265dp"
+        android:layout_marginBottom="515dp"
+        android:text="Chose Date"
+        android:textSize="12sp"
+        app:backgroundTint="@android:color/holo_green_dark" />
 
-    <EditText
-        android:id="@+id/editTextDate2"
-        android:layout_width="wrap_content"
-        android:layout_height="72dp"
-        android:layout_alignBottom="@+id/textView2"
+    <TextView
+        android:id="@+id/dateTv"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp"
-        android:layout_marginBottom="-1dp"
-        android:ems="10"
-        android:inputType="date" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="37dp"
+        android:layout_marginRight="37dp"
+        android:layout_marginBottom="524dp"
+        android:text="Date"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="257dp"
-        android:layout_marginRight="257dp"
-        android:layout_marginBottom="484dp"
+        android:layout_marginEnd="262dp"
+        android:layout_marginRight="262dp"
+        android:layout_marginBottom="459dp"
         android:text="Categorie"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
     <Spinner
@@ -112,9 +112,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="78dp"
-        android:layout_marginRight="78dp"
-        android:layout_marginBottom="489dp"
+        android:layout_marginEnd="81dp"
+        android:layout_marginRight="81dp"
+        android:layout_marginBottom="458dp"
         android:scrollbarThumbHorizontal="@drawable/ic_launcher_background"
         android:scrollbarTrackHorizontal="@color/purple_500"
         android:soundEffectsEnabled="true" />
