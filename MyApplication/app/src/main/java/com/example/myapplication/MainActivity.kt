@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         title = "Budget App"
         val button:Button = findViewById(R.id.button1)
         button.setOnClickListener {
-            val intent = Intent(this@MainActivity, Input::class.java)
+            val intent = Intent(this@MainActivity, Gestion::class.java)
             startActivity(intent)
         }
     }

@@ -10,11 +10,13 @@ class Data : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_data)
 
-        val button: Button = findViewById(R.id.button2)
-        button.setOnClickListener {
-            val i = Intent(this@Data, Input::class.java)
+
+        val butt: Button = findViewById(R.id.button)
+        butt.setOnClickListener {
+            val i = Intent(this@Data, Gestion::class.java)
             startActivity(i)
         }
+
     }
 
 }
