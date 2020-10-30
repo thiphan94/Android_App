@@ -6,29 +6,28 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.app.DatePickerDialog
 import android.widget.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 
-class NewActivity : AppCompatActivity() {
+class Input : AppCompatActivity() {
     var button_date: Button? = null
     var textview_date: TextView? = null
     var cal = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_new)
+        setContentView(R.layout.activity_input)
         title = "Budget App"
 
-        val set: Button = findViewById(R.id.button)
+        val set: Button = findViewById(R.id.button3)
         set.setOnClickListener {
-            val i = Intent(this@NewActivity, Data::class.java)
+            val i = Intent(this@Input, Data::class.java)
             startActivity(i)
         }
-        
+
         val button: Button = findViewById(R.id.button2)
         button.setOnClickListener {
-            val i = Intent(this@NewActivity, MainActivity::class.java)
+            val i = Intent(this@Input, MainActivity::class.java)
             startActivity(i)
         }
 
@@ -40,7 +39,7 @@ class NewActivity : AppCompatActivity() {
 
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                    Toast.makeText(this@NewActivity, getString(R.string.selected_item) + " " + categories[position], Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Input, getString(R.string.selected_item) + " " + categories[position], Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>) {
@@ -57,7 +56,7 @@ class NewActivity : AppCompatActivity() {
 
             spinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                    Toast.makeText(this@NewActivity, getString(R.string.selected_item) + " " + type[position], Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Input, getString(R.string.selected_item) + " " + type[position], Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>) {
