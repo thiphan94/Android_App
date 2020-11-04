@@ -1,10 +1,13 @@
 package com.example.budget_app
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import com.example.budget_app.ui.dashboard.DashboardFragment
+import com.example.budget_app.ui.home.HomeFragment
 import java.util.*
 
 class Expense : AppCompatActivity() {
@@ -12,6 +15,14 @@ class Expense : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_expense)
 
+        //Return Home page
+        val button:Button = findViewById(R.id.button2)
+        button.setOnClickListener {
+            val intent = Intent(this@Expense, Gestion::class.java)
+            startActivity(intent)
+        }
+
+        //Categories of expenses
         val categories = arrayOf("Cinema", "Comestique", "Cours", "School", "Hobbit", "Love")
         val spinner = findViewById<Spinner>(R.id.spinner)
         if (spinner != null) {

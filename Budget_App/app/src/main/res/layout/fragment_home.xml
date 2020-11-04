@@ -14,10 +14,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="127dp"
-        android:layout_marginRight="127dp"
-        android:layout_marginBottom="560dp"
-        android:text="Button" />
+        android:layout_marginEnd="93dp"
+        android:layout_marginRight="93dp"
+        android:layout_marginBottom="626dp"
+        android:text="ADD EXPENSE" />
 
     <TextView
         android:id="@+id/text_home"
