@@ -1,20 +1,21 @@
 package com.example.budget_app
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 
-
-class MainActivity : AppCompatActivity() {
+class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        title = "Budget App"
-        val button:Button = findViewById(R.id.button1)
+        setContentView(R.layout.activity_sign_up)
+
+        //return Login page
+        val button: Button = findViewById(R.id.login)
         button.setOnClickListener {
-            val intent = Intent(this@MainActivity, Login::class.java)
+            val intent = Intent(this@SignUp, Login::class.java)
             startActivity(intent)
         }
+
     }
 }
