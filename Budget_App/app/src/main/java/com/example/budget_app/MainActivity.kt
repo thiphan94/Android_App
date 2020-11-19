@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         title = "Budget App"
-        val button:Button = findViewById(R.id.button1)
+        val button:Button = findViewById(R.id.button)
         button.setOnClickListener {
             val intent = Intent(this@MainActivity, Login::class.java)
             startActivity(intent)
