@@ -4,14 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/login"/>
+    tools:context=".SignUp"
+    android:background="@drawable/background_color3">
 
     <TextView
         android:id="@+id/textView"
@@ -22,8 +16,8 @@
         android:textSize="36sp"
         android:textStyle="normal|bold"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="59dp" />
+        tools:layout_editor_absoluteX="110dp"
+        tools:layout_editor_absoluteY="61dp" />
 
     <Button
         android:id="@+id/login"
@@ -42,7 +36,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.379" />
+        app:layout_constraintVertical_bias="0.485" />
 
     <Button
         android:id="@+id/btnSignup"
@@ -51,7 +45,7 @@
         android:layout_marginTop="439dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="656dp"
+        android:layout_marginBottom="480dp"
         android:background="@drawable/loginbuttonshape"
         android:text="Sign Up"
         android:textColor="@android:color/white"
