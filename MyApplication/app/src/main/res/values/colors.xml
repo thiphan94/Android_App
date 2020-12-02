@@ -10,7 +10,7 @@
     <color name="pink">#EFA7C0</color>
     <color name="blue">#95CEE8</color>
     <color name="green">#93EA97</color>
-    <color name="yellow">#EDE8B9</color>
-
+    <color name="yellow">#FABC02</color>
+    <color name="text_shadow">#7F000000</color>
 
 </resources>

@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
+        app:itemBackground="@drawable/navigation_bar"
         app:menu="@menu/bottom_navigation_menu"/>
 
     <fragment
