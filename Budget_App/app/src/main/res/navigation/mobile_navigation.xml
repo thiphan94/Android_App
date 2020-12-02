@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_add"
         android:name="com.example.budget_app.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="Add"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_profil"
         android:name="com.example.budget_app.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="Profil"
         tools:layout="@layout/fragment_notifications" />
 </navigation>

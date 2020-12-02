@@ -28,11 +28,11 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="86dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btnSignup"
-        android:layout_marginEnd="59dp"
-        android:layout_marginRight="59dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
         android:layout_marginBottom="20dp"
         android:layout_toStartOf="@+id/editText"
         android:layout_toLeftOf="@+id/editText"

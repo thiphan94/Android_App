@@ -5,23 +5,124 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment"
-    android:background="@android:color/holo_blue_bright">
+    android:background="@android:color/white">
 
-    <TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="145dp"
-        android:layout_height="63dp"
+    <EditText
+        android:id="@+id/editTextNumberDecimal2"
+        android:layout_width="184dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="122dp"
-        android:layout_marginRight="122dp"
-        android:layout_marginBottom="513dp"
-        android:text="Hello" />
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginBottom="529dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textCursorDrawable="@color/teal_200"
+        tools:layout_editor_absoluteX="211dp"
+        tools:layout_editor_absoluteY="107dp" />
+
+    <Button
+        android:id="@+id/pickDateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="271dp"
+        android:layout_marginRight="271dp"
+        android:layout_marginBottom="444dp"
+        android:text="Chose Date"
+        android:textSize="12sp"
+        app:backgroundTint="@android:color/holo_green_dark"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="174dp" />
+
+    <TextView
+        android:id="@+id/dateTv"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        android:layout_marginBottom="459dp"
+        android:text="Date"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="197dp"
+        tools:layout_editor_absoluteY="187dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="271dp"
+        android:layout_marginRight="271dp"
+        android:layout_marginBottom="368dp"
+        android:text="Categorie"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="262dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:layout_marginBottom="365dp"
+        android:scrollbarThumbHorizontal="@drawable/ic_launcher_background"
+        android:scrollbarTrackHorizontal="@color/purple_500"
+        android:soundEffectsEnabled="true"
+        tools:layout_editor_absoluteX="197dp"
+        tools:layout_editor_absoluteY="262dp" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="141dp"
+        android:layout_height="34dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="252dp"
+        android:layout_marginRight="252dp"
+        android:layout_marginBottom="544dp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="118dp" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="49dp"
+        android:layout_marginRight="49dp"
+        android:layout_marginBottom="121dp"
+        android:text="Turn Back"
+        app:backgroundTint="@color/teal_700" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="160dp"
+        android:layout_marginRight="160dp"
+        android:layout_marginBottom="282dp"
+        android:text="ADD"
+        app:backgroundTint="@color/teal_200" />
 </RelativeLayout>
