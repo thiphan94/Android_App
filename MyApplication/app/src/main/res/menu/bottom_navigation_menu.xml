@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navi_smile"
+        android:icon="@drawable/ic_f1"
+        android:title="Home"/>
+    <item
+        android:id="@+id/navi_pets"
+        android:icon="@drawable/ic_f2"
+        android:title="Add"/>
+    <item
+        android:id="@+id/navi_sun"
+        android:icon="@drawable/ic_f3"
+        android:title="Star"/>
+    <item
+        android:id="@+id/navi_flight"
+        android:icon="@drawable/ic_f4"
+        android:title="Settings"/>
+</menu>
