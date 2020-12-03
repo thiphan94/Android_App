@@ -23,19 +23,6 @@ class Fragment2 : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v: View = inflater.inflate(R.layout.fragment_2, container, false)
 
-        val newPage =
-                v.findViewById<View>(R.id.button) as Button
-        newPage.setOnClickListener {
-            val intent = Intent(activity, Expense::class.java)
-            startActivity(intent)
-        }
-
-        //Return Home page
-        val button:Button = v.findViewById(R.id.button2)
-        button.setOnClickListener {
-            val intent = Intent(activity, MainActivity::class.java)
-            startActivity(intent)
-        }
 
         //Categories of expenses
         //val categories = arrayOf("Cinema", "Comestique", "Cours", "School", "Hobbit", "Love")
