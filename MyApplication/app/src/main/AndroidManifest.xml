@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".DataBaseHandler"></activity>
+        <activity android:name=".Account"></activity>
+        <activity android:name=".DataBaseHandler" />
         <activity android:name=".User" />
         <activity android:name=".DataBaseHelper" />
         <activity android:name=".Expense" />
