@@ -144,7 +144,7 @@
         tools:layout_editor_absoluteY="118dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"

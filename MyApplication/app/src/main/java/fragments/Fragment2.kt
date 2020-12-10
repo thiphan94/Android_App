@@ -11,10 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.DialogFragment
-import com.example.myapplication.Expense
-import com.example.myapplication.First
-import com.example.myapplication.MainActivity
-import com.example.myapplication.R
+import com.example.myapplication.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -65,6 +62,23 @@ class Fragment2 : Fragment() {
             }, year, month, day)
             dpd.show()
 
+        }
+
+        //********************
+
+
+        val db = DataBaseHandler(v.context)
+        val button = v.findViewById<Button>(R.id.button)
+        val textView2     = v.findViewById<TextView>(R.id.dateTv)
+        val textView3     = v.findViewById<TextView>(R.id.editTextNumberDecimal2)
+
+        button.setOnClickListener {
+            if(textView2.text.toString().isNotEmpty() && textView3.text.toString().isNotEmpty()){
+                val user = User(textView2.text.toString(),textView3.text.toString().toInt())
+                db.insertData(user)
+            }else{
+                Toast.makeText(activity,"Please Fill All Data's",Toast.LENGTH_LONG).show()
+            }
         }
         return v
     }
