@@ -50,11 +50,12 @@ class SignUp : AppCompatActivity() {
             .addOnCompleteListener {
                 if (!it.isSuccessful) return@addOnCompleteListener
                 Log.d("SignUp", "Successfully created user : ${it.result?.user?.uid}")
+                Toast.makeText(this, "Successfully created user ${it.result?.user?.uid}", Toast.LENGTH_SHORT).show()
             }
 
             .addOnFailureListener{
-                Log.d("SignUp", "Ailed to create user: ${it.message}")
-
+                Log.d("SignUp", "Failed to create user: ${it.message}")
+                Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT).show()
             }
 
     }
