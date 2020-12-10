@@ -23,29 +23,20 @@ class Fragment2 : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v: View = inflater.inflate(R.layout.fragment_2, container, false)
 
-
-        //Categories of expenses
-        //val categories = arrayOf("Cinema", "Comestique", "Cours", "School", "Hobbit", "Love")
-        val categories = resources.getStringArray(R.array.categories)
+        //Spinner image + text for les categories
         val spinner = v.findViewById<Spinner>(R.id.spinner)
 
         if (spinner != null) {
-            val arrayAdapter = ArrayAdapter(v.context, android.R.layout.simple_spinner_item, categories)
-            spinner.adapter = arrayAdapter
-
-
+            //Categories of expenses
+            val categories = arrayOf("Transportation", "Food", "Healthcare", "Education", "Entertainment", "Love", "Groceries", "Make up", "Travel")
+            val image = intArrayOf(R.drawable.ecocar, R.drawable.lunchbag, R.drawable.healthy, R.drawable.school, R.drawable.tickets, R.drawable.love, R.drawable.groceries, R.drawable.makeup,  R.drawable.travel )
+            val spinnerCustomAdapter = SpinnerCustomAdapter(v.context, image, categories);
+            spinner.adapter=spinnerCustomAdapter
         }
 
-        // Create an ArrayAdapter
-        val adapter = ArrayAdapter.createFromResource(v.context,
-                R.array.categories, android.R.layout.simple_spinner_item)
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item)
-        // Apply the adapter to the spinner
-        spinner.adapter = adapter
 
-        //***************
+
+        //Spinner for type ( Income or Expense)
 
         val type = arrayOf("Income", "Expense")
         val spinner2 = v.findViewById<Spinner>(R.id.spinner2)
@@ -56,7 +47,7 @@ class Fragment2 : Fragment() {
         }
 
 
-        //*******************
+        //Chose date
 
         val mPickTimeBtn = v.findViewById<Button>(R.id.pickDateBtn)
         val textView     = v.findViewById<TextView>(R.id.dateTv)
@@ -76,6 +67,30 @@ class Fragment2 : Fragment() {
 
         }
         return v
+    }
+
+    class SpinnerCustomAdapter(internal var context: Context, internal var flags: IntArray, internal var Network: Array<String>) : BaseAdapter() { internal var inflter: LayoutInflater
+        init {
+            inflter = LayoutInflater.from(context)
+        }
+        override fun getCount(): Int {
+            return flags.size
+        }
+        override fun getItem(i: Int): Any? {
+            return null
+        }
+        override fun getItemId(i: Int): Long {
+            return 0
+        }
+        override fun getView(i: Int, view: View?, viewGroup: ViewGroup): View {
+            var view = view
+            view = inflter.inflate(R.layout.custom_spinner_items, null)
+            val icon = view.findViewById(R.id.spinner_imageView) as ImageView
+            val names = view.findViewById(R.id.spinner_textView) as TextView
+            icon.setImageResource(flags[i])
+            names.text = Network[i]
+            return view
+        }
     }
 
 }
