@@ -1,4 +1,17 @@
 package com.example.myapplication
 
-class DatabaseModel (var type:String="", var date:String="", var amount:Double = 0.0, var category:String="") {
+class DatabaseModel {
+    var id = ""
+    var type =""
+    var date =""
+    var amount = 0.0
+    //var category =""
+    //constructor(type:String,date:String,amount:Double,category:String){
+    constructor(id: String, type:String,date:String, amount:Double){
+        this.id = id
+        this.type = type
+        this.date = date
+        this.amount = amount
+        //this.category = category
+    }
 }

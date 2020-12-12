@@ -1,34 +1,72 @@
 package fragments
 
 import android.app.DatePickerDialog
-import android.app.TimePickerDialog
 import android.content.Context
-import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.fragment.app.DialogFragment
-import com.example.myapplication.*
-import java.text.SimpleDateFormat
+import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
+import com.example.myapplication.CustomClass
+import com.example.myapplication.DatabaseModel
+import com.example.myapplication.R
+import com.google.firebase.database.FirebaseDatabase
 import java.util.*
 
 
 class Fragment2 : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+    ): View? {
         val v: View = inflater.inflate(R.layout.fragment_2, container, false)
 
         //Spinner image + text for les categories
         val spinner = v.findViewById<Spinner>(R.id.spinner)
 
+
         if (spinner != null) {
-            //Categories of expenses
-            val categories = arrayOf("Transportation", "Food", "Healthcare", "Education", "Entertainment", "Love", "Groceries", "Make up", "Travel")
-            val image = intArrayOf(R.drawable.ecocar, R.drawable.lunchbag, R.drawable.healthy, R.drawable.school, R.drawable.tickets, R.drawable.love, R.drawable.groceries, R.drawable.makeup,  R.drawable.travel )
+
+
+            //Categories of expense
+            val categories = arrayOf(
+                    "Transportation",
+                    "Food",
+                    "Healthcare",
+                    "Education",
+                    "Entertainment",
+                    "Love",
+                    "Groceries",
+                    "Make up",
+                    "Travel"
+            )
+
+
+            val image = intArrayOf(
+                    R.drawable.ecocar,
+                    R.drawable.lunchbag,
+                    R.drawable.healthy,
+                    R.drawable.school,
+                    R.drawable.tickets,
+                    R.drawable.love,
+                    R.drawable.groceries,
+                    R.drawable.makeup,
+                    R.drawable.travel
+            )
+
+
+
+
+
             val spinnerCustomAdapter = SpinnerCustomAdapter(v.context, image, categories);
             spinner.adapter=spinnerCustomAdapter
+
+
         }
 
 
@@ -56,10 +94,16 @@ class Fragment2 : Fragment() {
 
         mPickTimeBtn.setOnClickListener {
 
-            val dpd = DatePickerDialog(v.context, DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                // Display Selected date in TextView
-                textView.setText("" + dayOfMonth + " " + month + ", " + year)
-            }, year, month, day)
+            val dpd = DatePickerDialog(
+                    v.context,
+                    DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                        // Display Selected date in TextView
+                        textView.setText("" + dayOfMonth + " " + month + ", " + year)
+                    },
+                    year,
+                    month,
+                    day
+            )
             dpd.show()
 
         }
@@ -67,23 +111,48 @@ class Fragment2 : Fragment() {
         //********************
 
 
-        val db = DataBaseHandler(v.context)
+        //val db = DataBaseHandler(v.context)
+
+        var database = FirebaseDatabase.getInstance().getReference("Data")
         val button = v.findViewById<Button>(R.id.button)
-        val textView2     = v.findViewById<TextView>(R.id.dateTv)
-        val textView3     = v.findViewById<TextView>(R.id.editTextNumberDecimal2)
+        val money    = v.findViewById<TextView>(R.id.amount)
+        val id = database.push().key
 
         button.setOnClickListener {
-            if(textView2.text.toString().isNotEmpty() && textView3.text.toString().isNotEmpty()){
-                val user = User(textView2.text.toString(),textView3.text.toString().toInt())
-                db.insertData(user)
-            }else{
-                Toast.makeText(activity,"Please Fill All Data's",Toast.LENGTH_LONG).show()
+            val types = spinner2.selectedItem.toString() // selected value of spinner (Income or Expense) >>> string
+            val date = textView.text.toString() //date
+            val amount = money.text.toString().toDouble() //amount
+            //val category2 = spinner.selectedItem.toString()// selected value of spinner (categories) >>> string
+            
+
+
+
+
+
+
+            //database.setValue(DatabaseModel(types, date, amount, category))
+            if (id != null) {
+                database.child(id).setValue(DatabaseModel(id, types, date, amount)).addOnCompleteListener {
+                    Toast.makeText(v.context, "Saved ! ", Toast.LENGTH_SHORT).show()
+                }
             }
         }
+
+
+        //******* write data to firebase
+        // Write a message to the database
+        /*val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("message")
+        */
+
         return v
     }
 
-    class SpinnerCustomAdapter(internal var context: Context, internal var flags: IntArray, internal var Network: Array<String>) : BaseAdapter() { internal var inflter: LayoutInflater
+    class SpinnerCustomAdapter(
+            internal var context: Context,
+            internal var flags: IntArray,
+            internal var Network: Array<String>
+    ) : BaseAdapter() { internal var inflter: LayoutInflater
         init {
             inflter = LayoutInflater.from(context)
         }
@@ -108,3 +177,4 @@ class Fragment2 : Fragment() {
     }
 
 }
+
