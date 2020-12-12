@@ -123,7 +123,7 @@ class Fragment2 : Fragment() {
             val date = textView.text.toString() //date
             val amount = money.text.toString().toDouble() //amount
             //val category2 = spinner.selectedItem.toString()// selected value of spinner (categories) >>> string
-            
+
 
 
 
