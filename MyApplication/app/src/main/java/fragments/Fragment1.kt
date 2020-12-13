@@ -31,26 +31,9 @@ class Fragment1 : Fragment() {
 
         val db = FirebaseFirestore.getInstance()
 
-
+        //**********Query total income and display to a TextView : textDisplay
         val query1 = db.collection("data")
-        val sdf = SimpleDateFormat("yyyy.MM.dd")
-        /*
-        query1
-            .whereEqualTo("types", "Income")
-            .get()
-            .addOnSuccessListener { documents ->
-                var total = 0.0
-                for (document in documents) {
-                    val itemCost = document.getDouble("amount")!!
-                    total += itemCost
-                }
-                textDisplay.text = total.toString()
-            }
 
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents: ", exception)
-            }
-        */
         val c = Calendar.getInstance()
         var year = c.get(Calendar.YEAR)
         var month = c.get(Calendar.MONTH)
