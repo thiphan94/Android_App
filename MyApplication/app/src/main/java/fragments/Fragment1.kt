@@ -60,7 +60,7 @@ class Fragment1 : Fragment() {
         //array [start,end)
         //query of total income in month current
         query1
-            .whereEqualTo("types", "Income")
+            .whereEqualTo("type", "Income")
             .whereGreaterThanOrEqualTo("date", start)
             .whereLessThan("date", end)
             .get()

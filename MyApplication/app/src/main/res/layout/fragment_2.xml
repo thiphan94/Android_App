@@ -77,8 +77,8 @@
         android:layout_width="123dp"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
+        android:layout_marginEnd="42dp"
+        android:layout_marginRight="42dp"
         android:layout_marginBottom="327dp"
         android:layout_toStartOf="@+id/spinner"
         android:layout_toLeftOf="@+id/spinner"
@@ -159,6 +159,18 @@
         android:textColor="@color/black"
         android:textSize="14sp"
         app:backgroundTint="#3A4E31" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="178dp"
+        android:layout_height="51dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="46dp"
+        android:layout_marginRight="46dp"
+        android:layout_marginBottom="253dp"
+        android:text="TextView" />
 
 
 </RelativeLayout>

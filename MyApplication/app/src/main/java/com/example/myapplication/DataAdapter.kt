@@ -11,7 +11,6 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import java.text.FieldPosition
 
-//class DataAdapter(options: FirestoreRecyclerOptions<DataItem>) : FirestoreRecyclerAdapter<DataItem, DataAdapter.DataAdapterVH>(options) {
 class DataAdapter(var list: ArrayList<DataItem>) : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
 
 
@@ -20,6 +19,7 @@ class DataAdapter(var list: ArrayList<DataItem>) : RecyclerView.Adapter<DataAdap
         var type  = itemView.findViewById(R.id.type) as TextView
         var date = itemView.findViewById(R.id.date) as TextView
         var amount = itemView.findViewById(R.id.amount) as TextView
+        var category = itemView.findViewById(R.id.category) as TextView
     }
 
 
@@ -33,9 +33,10 @@ class DataAdapter(var list: ArrayList<DataItem>) : RecyclerView.Adapter<DataAdap
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.type.text = list[position].types
+        holder.type.text = list[position].type
         holder.date.text = list[position].date
         holder.amount.text = list[position].amount.toString()
+        holder.category.text = list[position].category
 
     }
 

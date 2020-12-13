@@ -1,13 +1,13 @@
 package fragments
 
 import android.app.DatePickerDialog
-import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import android.widget.AdapterView.OnItemSelectedListener
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.example.myapplication.CustomDropDownAdapter
@@ -28,57 +28,14 @@ class Fragment2 : Fragment() {
     ): View? {
         val v: View = inflater.inflate(R.layout.fragment_2, container, false)
 
-        //Spinner image + text for les categories
+        //******************Spinner image + text for les categories
         val spinner = v.findViewById<Spinner>(R.id.spinner)
 
-        /*
-
-        if (spinner != null) {
-
-
-            //Categories of expense
-            val categories = arrayOf(
-                "Transportation",
-                "Food",
-                "Healthcare",
-                "Education",
-                "Entertainment",
-                "Love",
-                "Groceries",
-                "Make up",
-                "Travel"
-            )
-
-
-            val image = intArrayOf(
-                R.drawable.ecocar,
-                R.drawable.lunchbag,
-                R.drawable.healthy,
-                R.drawable.school,
-                R.drawable.tickets,
-                R.drawable.love,
-                R.drawable.groceries,
-                R.drawable.makeup,
-                R.drawable.travel
-            )
-
-
-
-
-
-            val spinnerCustomAdapter = SpinnerCustomAdapter(v.context, image, categories);
-            spinner.adapter=spinnerCustomAdapter
-
-
-        }
-
-
-         */
 
         fun readFromAsset(): List<Model> {
             val file_name = "android_version.json"
 
-            val bufferReader = v.context.assets.open( file_name ).bufferedReader()
+            val bufferReader = v.context.assets.open(file_name).bufferedReader()
 
             val json_string = bufferReader.use {
                 it.readText()
@@ -97,12 +54,12 @@ class Fragment2 : Fragment() {
 
 
 
-        //******************Spinner for type ( Income or Expense)
+        //******************Spinner for types ( Income or Expense)
 
-        val type = arrayOf("Income", "Expense")
+        val types = arrayOf("Income", "Expense")
         val spinner2 = v.findViewById<Spinner>(R.id.spinner2)
         if (spinner2 != null) {
-            val arrayAdapter = ArrayAdapter(v.context, android.R.layout.simple_spinner_item, type)
+            val arrayAdapter = ArrayAdapter(v.context, android.R.layout.simple_spinner_item, types)
             spinner2.adapter = arrayAdapter
 
         }
@@ -125,11 +82,9 @@ class Fragment2 : Fragment() {
                     day = dayOfMonth
                     month = monthOfYear + 1
                     year = selyear
-                    if (day == 1)
-                    {
+                    if (day == 1) {
                         textView.text = "$year/$month/0$day"
-                    }
-                    else{
+                    } else {
                         textView.text = "$year/$month/$day"
                     }
 
@@ -140,7 +95,7 @@ class Fragment2 : Fragment() {
 
             dpd.show()
         }
-        //********************
+        //******************** Write data to CloudFirestore
 
 
         val db = FirebaseFirestore.getInstance()
@@ -148,14 +103,29 @@ class Fragment2 : Fragment() {
         val button = v.findViewById<Button>(R.id.button)
         val money    = v.findViewById<TextView>(R.id.amount)
 
+        val test    = v.findViewById<TextView>(R.id.textView8)
+
+        spinner.onItemSelectedListener = object : OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                val id: String = modelList[position].getId()
+                test.text = id
+            }
+
+            override fun onNothingSelected(arg0: AdapterView<*>?) {}
+        }
 
         button.setOnClickListener {
-            val types = spinner2.selectedItem.toString() // selected value of spinner (Income or Expense) >>> string
+            val type = spinner2.selectedItem.toString() // selected value of spinner (Income or Expense) >>> string
             val date = textView.text.toString() //date
             val amount = money.text.toString().toDouble() //amount
-            //val category2 = spinner.selectedItem.toString()// selected value of spinner (categories) >>> string
+            val category = test.text.toString()// selected value of spinner (categories) >>> string
 
-            db.collection("data").add(DataItem(types, date, amount)).addOnCompleteListener {
+            db.collection("data").add(DataItem(type, date, amount, category)).addOnCompleteListener {
                 Toast.makeText(v.context, "Saved ! ", Toast.LENGTH_SHORT).show()
             }
 
@@ -164,34 +134,7 @@ class Fragment2 : Fragment() {
 
         return v
     }
-    /*
-    class SpinnerCustomAdapter(
-        internal var context: Context,
-        internal var flags: IntArray,
-        internal var Network: Array<String>
-    ) : BaseAdapter() { internal var inflter: LayoutInflater
-        init {
-            inflter = LayoutInflater.from(context)
-        }
-        override fun getCount(): Int {
-            return flags.size
-        }
-        override fun getItem(i: Int): Any? {
-            return null
-        }
-        override fun getItemId(i: Int): Long {
-            return 0
-        }
-        override fun getView(i: Int, view: View?, viewGroup: ViewGroup): View {
-            var view = view
-            view = inflter.inflate(R.layout.custom_spinner_items, null)
-            val icon = view.findViewById(R.id.spinner_imageView) as ImageView
-            val names = view.findViewById(R.id.spinner_textView) as TextView
-            icon.setImageResource(flags[i])
-            names.text = Network[i]
-            return view
-        }
-    }*/
+
 
 }
 

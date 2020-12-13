@@ -29,9 +29,10 @@ class GetData : AppCompatActivity() {
                     for (document in task.result!!) {
                         list.add(
                             DataItem(
-                                document.get("types") as String,
+                                document.get("type") as String,
                                 document.get("date") as String,
-                                document.get("amount") as Double
+                                document.get("amount") as Double,
+                                document.get("category") as String
                             )
                         )
                     }
