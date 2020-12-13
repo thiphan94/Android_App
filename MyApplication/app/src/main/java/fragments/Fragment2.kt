@@ -111,20 +111,32 @@ class Fragment2 : Fragment() {
         val textView     = v.findViewById<TextView>(R.id.dateTv)
 
         val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
-
+        var year = c.get(Calendar.YEAR)
+        var month = c.get(Calendar.MONTH)
+        var day = c.get(Calendar.DAY_OF_MONTH)
         mPickTimeBtn.setOnClickListener {
 
-            val dpd = DatePickerDialog(v.context, { _, year, _, dayOfMonth ->
-                // Display Selected date in TextView
-                textView.text = "$dayOfMonth $month, $year"
-            }, year, month, day)
+            val dpd = DatePickerDialog(
+                v.context,
+                { _, selyear, monthOfYear, dayOfMonth ->
+                    day = dayOfMonth
+                    month = monthOfYear + 1
+                    year = selyear
+                    if (day == 1)
+                    {
+                        textView.text = "$year/$month/0$day"
+                    }
+                    else{
+                        textView.text = "$year/$month/$day"
+                    }
+
+
+                }, year, month, day
+            )
+
+
             dpd.show()
-
         }
-
         //********************
 
 
