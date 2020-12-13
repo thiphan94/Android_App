@@ -10,9 +10,12 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import com.example.myapplication.CustomDropDownAdapter
 import com.example.myapplication.DataItem
+import com.example.myapplication.Model
 import com.example.myapplication.R
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.gson.Gson
 import java.util.*
 
 
@@ -28,6 +31,7 @@ class Fragment2 : Fragment() {
         //Spinner image + text for les categories
         val spinner = v.findViewById<Spinner>(R.id.spinner)
 
+        /*
 
         if (spinner != null) {
 
@@ -69,8 +73,31 @@ class Fragment2 : Fragment() {
         }
 
 
+         */
 
-        //Spinner for type ( Income or Expense)
+        fun readFromAsset(): List<Model> {
+            val file_name = "android_version.json"
+
+            val bufferReader = v.context.assets.open( file_name ).bufferedReader()
+
+            val json_string = bufferReader.use {
+                it.readText()
+            }
+            val gson = Gson()
+            val modelList: List<Model> =
+                gson.fromJson(json_string, Array<Model>::class.java).toList()
+            return modelList
+        }
+        val modelList: List<Model> = readFromAsset()
+
+        val customDropDownAdapter = CustomDropDownAdapter(v.context, modelList)
+        spinner.adapter = customDropDownAdapter
+
+
+
+
+
+        //******************Spinner for type ( Income or Expense)
 
         val type = arrayOf("Income", "Expense")
         val spinner2 = v.findViewById<Spinner>(R.id.spinner2)
@@ -81,31 +108,7 @@ class Fragment2 : Fragment() {
         }
 
 
-        //Chose date
-        /*
-        val mPickTimeBtn = v.findViewById<Button>(R.id.pickDateBtn)
-        val textView     = v.findViewById<TextView>(R.id.dateTv)
-
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
-
-        mPickTimeBtn.setOnClickListener {
-
-            val dpd = DatePickerDialog(
-                v.context,
-                DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                    // Display Selected date in TextView
-                    textView.setText("" + dayOfMonth + " " + month + ", " + year)
-                },
-                year,
-                month,
-                day
-            )
-            dpd.show()
-
-        }*/
+        //********************Chose date
 
         val mPickTimeBtn = v.findViewById<Button>(R.id.pickDateBtn)
         val textView     = v.findViewById<TextView>(R.id.dateTv)
@@ -161,7 +164,7 @@ class Fragment2 : Fragment() {
 
         return v
     }
-
+    /*
     class SpinnerCustomAdapter(
         internal var context: Context,
         internal var flags: IntArray,
@@ -188,7 +191,7 @@ class Fragment2 : Fragment() {
             names.text = Network[i]
             return view
         }
-    }
+    }*/
 
 }
 

@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Transportation",
+    "url": "ecocar"
+  },
+  {
+    "name": "Food",
+    "url": "lunchbag"
+  },
+  {
+    "name": "Healthcare",
+    "url": "healthy"
+  },
+  {
+    "name": "Education",
+    "url": "school"
+  },
+  {
+    "name": "Entertainment",
+    "url": "tickets"
+  },
+  {
+    "name": "Love",
+    "url": "love"
+  },
+
+  {
+    "name": "Groceries",
+    "url": "groceries"
+  },
+  {
+    "name": "Make up",
+    "url": "makeup"
+  },
+
+  {
+    "name": "Travel",
+    "url": "travel"
+  }
+]
