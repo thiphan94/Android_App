@@ -15,7 +15,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginBottom="525dp"
+        android:layout_marginBottom="527dp"
         android:background="#3A4E31" />
 
     <TextView
@@ -53,5 +53,35 @@
         android:layout_marginRight="26dp"
         android:layout_marginBottom="73dp"
         android:background="#CB968B" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="191dp"
+        android:layout_height="73dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="190dp"
+        android:layout_marginRight="190dp"
+        android:layout_marginBottom="611dp"
+        android:gravity="center"
+        android:text="Total income:"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="133dp"
+        android:layout_height="65dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="41dp"
+        android:layout_marginBottom="612dp"
+        android:gravity="center"
+        android:text="hello"
+        android:textColor="@color/white"
+        android:textSize="35dp" />
 
 </RelativeLayout>

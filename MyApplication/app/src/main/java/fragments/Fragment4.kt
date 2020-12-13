@@ -29,68 +29,9 @@ class Fragment4 : Fragment() {
             val intent = Intent(this@Fragment4.context, GetData::class.java)
             startActivity(intent)
         }
-        //val recyclerView = v.findViewById<RecyclerView>(R.id.recycler_view)
-        //val db = FirebaseFirestore.getInstance()
-        /*
-        val query  = db.collection("data")
 
-        var fire : FirestoreRecyclerOptions<DataItem> = FirestoreRecyclerOptions.Builder<DataItem>()
-            .setQuery(query, DataItem::class.java)
-            .build();
 
-        var dataadapter = DataAdapter(fire)
 
-        recyclerView.layoutManager = LinearLayoutManager(v.context)
-        recyclerView.adapter = dataadapter
-
-        */
-        /*
-        db.collection("data")
-            .get()
-            .addOnCompleteListener(object : OnCompleteListener<QuerySnapshot>)
-            {
-                override fun onComplete(p0: Task<QuerySnapshot>){
-                    var list = ArrayList<DataItem>()
-                    if (p0.isSuccessful) {
-                        for (document in p0.result!!) {
-                            list.add(
-                                DataItem(
-                                    document.get("types") as String,
-                                    document.get("date") as String
-                                )
-                            )
-                        }
-                        var adapter = DataAdapter(list)
-                        recyclerView.adapter = adapter
-                    } else {
-                        Log.w(TAG, "Error getting documents.", p0.exception)
-                    }
-            }
-
-            }
-        */
-        /*
-        db.collection("data")
-            .get()
-            .addOnCompleteListener { task ->
-                var list = ArrayList<DataItem>()
-                if (task.isSuccessful) {
-                    for (document in task.result!!) {
-                        list.add(
-                            DataItem(
-                                document.get("types") as String,
-                                document.get("date") as String,
-                                document.get("amount") as Double
-                            )
-                        )
-                    }
-                    var adapter = DataAdapter(list)
-                    recyclerView.adapter = adapter
-                } else {
-                    Log.w(TAG, "Error getting documents.", task.exception)
-                }
-            }
-        */
         return v
     }
 
