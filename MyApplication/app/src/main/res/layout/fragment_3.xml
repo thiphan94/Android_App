@@ -10,8 +10,8 @@
     android:gravity="center">
 
     <ImageView
-        android:layout_width="285dp"
-        android:layout_height="125dp"
+        android:layout_width="183dp"
+        android:layout_height="74dp"
         android:src="@drawable/piggy" />
 
     <SeekBar
@@ -49,7 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="5dp"
         android:gravity="center">
         <ImageView
             android:layout_width="18dp"

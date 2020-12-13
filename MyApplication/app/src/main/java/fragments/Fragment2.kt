@@ -10,19 +10,18 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import com.example.myapplication.CustomClass
-import com.example.myapplication.DatabaseModel
+import com.example.myapplication.DataItem
 import com.example.myapplication.R
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
 
 class Fragment2 : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         val v: View = inflater.inflate(R.layout.fragment_2, container, false)
 
@@ -35,28 +34,28 @@ class Fragment2 : Fragment() {
 
             //Categories of expense
             val categories = arrayOf(
-                    "Transportation",
-                    "Food",
-                    "Healthcare",
-                    "Education",
-                    "Entertainment",
-                    "Love",
-                    "Groceries",
-                    "Make up",
-                    "Travel"
+                "Transportation",
+                "Food",
+                "Healthcare",
+                "Education",
+                "Entertainment",
+                "Love",
+                "Groceries",
+                "Make up",
+                "Travel"
             )
 
 
             val image = intArrayOf(
-                    R.drawable.ecocar,
-                    R.drawable.lunchbag,
-                    R.drawable.healthy,
-                    R.drawable.school,
-                    R.drawable.tickets,
-                    R.drawable.love,
-                    R.drawable.groceries,
-                    R.drawable.makeup,
-                    R.drawable.travel
+                R.drawable.ecocar,
+                R.drawable.lunchbag,
+                R.drawable.healthy,
+                R.drawable.school,
+                R.drawable.tickets,
+                R.drawable.love,
+                R.drawable.groceries,
+                R.drawable.makeup,
+                R.drawable.travel
             )
 
 
@@ -95,14 +94,14 @@ class Fragment2 : Fragment() {
         mPickTimeBtn.setOnClickListener {
 
             val dpd = DatePickerDialog(
-                    v.context,
-                    DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-                        // Display Selected date in TextView
-                        textView.setText("" + dayOfMonth + " " + month + ", " + year)
-                    },
-                    year,
-                    month,
-                    day
+                v.context,
+                DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                    // Display Selected date in TextView
+                    textView.setText("" + dayOfMonth + " " + month + ", " + year)
+                },
+                year,
+                month,
+                day
             )
             dpd.show()
 
@@ -111,12 +110,11 @@ class Fragment2 : Fragment() {
         //********************
 
 
-        //val db = DataBaseHandler(v.context)
-
-        var database = FirebaseDatabase.getInstance().getReference("Data")
+        val db = FirebaseFirestore.getInstance()
+        val data = HashMap<String, Any>()
         val button = v.findViewById<Button>(R.id.button)
         val money    = v.findViewById<TextView>(R.id.amount)
-        val id = database.push().key
+
 
         button.setOnClickListener {
             val types = spinner2.selectedItem.toString() // selected value of spinner (Income or Expense) >>> string
@@ -124,34 +122,20 @@ class Fragment2 : Fragment() {
             val amount = money.text.toString().toDouble() //amount
             //val category2 = spinner.selectedItem.toString()// selected value of spinner (categories) >>> string
 
-
-
-
-
-
-
-            //database.setValue(DatabaseModel(types, date, amount, category))
-            if (id != null) {
-                database.child(id).setValue(DatabaseModel(id, types, date, amount)).addOnCompleteListener {
-                    Toast.makeText(v.context, "Saved ! ", Toast.LENGTH_SHORT).show()
-                }
+            db.collection("data").add(DataItem(types, date, amount)).addOnCompleteListener {
+                Toast.makeText(v.context, "Saved ! ", Toast.LENGTH_SHORT).show()
             }
+
         }
 
-
-        //******* write data to firebase
-        // Write a message to the database
-        /*val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("message")
-        */
 
         return v
     }
 
     class SpinnerCustomAdapter(
-            internal var context: Context,
-            internal var flags: IntArray,
-            internal var Network: Array<String>
+        internal var context: Context,
+        internal var flags: IntArray,
+        internal var Network: Array<String>
     ) : BaseAdapter() { internal var inflter: LayoutInflater
         init {
             inflter = LayoutInflater.from(context)
