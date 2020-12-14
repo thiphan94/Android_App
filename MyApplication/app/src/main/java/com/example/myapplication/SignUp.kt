@@ -46,6 +46,7 @@ class SignUp : AppCompatActivity() {
         Log.d("SignUp","Email is " + email)
         Log.d("SignUp","Password :  $password")
 
+
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(string1, string2)
             .addOnCompleteListener {
                 if (!it.isSuccessful) return@addOnCompleteListener

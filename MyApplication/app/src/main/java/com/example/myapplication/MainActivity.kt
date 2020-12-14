@@ -6,6 +6,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +27,10 @@ class MainActivity : AppCompatActivity() {
 
         val animation2 = AnimationUtils.loadAnimation(this, R.anim.bottom_animation)
         val button2: Button = findViewById(R.id.button)
-        button2.animation = animation2;
+        button2.animation = animation2
+
+
+
     }
+
 }
