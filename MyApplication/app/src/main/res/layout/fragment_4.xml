@@ -3,19 +3,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="298dp"
+    <TextView
+        android:id="@+id/saving"
+        android:layout_width="324dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:layout_marginBottom="150dp"
-        android:text="SUMMARY" />
+        android:layout_marginEnd="47dp"
+        android:layout_marginRight="47dp"
+        android:layout_marginBottom="553dp"
+        android:background="@drawable/boxshape2"
+        android:elevation="15dp"
+        android:gravity="center"
+        android:text="Saving"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
+        android:layout_marginBottom="471dp"
+        android:background="@drawable/boxshape2"
+        android:elevation="15dp"
+        android:gravity="center"
+        android:text="Data"
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/btn_logout"
@@ -28,7 +46,6 @@
         android:layout_marginRight="80dp"
         android:layout_marginBottom="55dp"
         android:text="Logout" />
-
 
 
 </RelativeLayout>

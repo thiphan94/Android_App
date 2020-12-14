@@ -32,9 +32,15 @@ class Fragment4 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val v: View = inflater.inflate(R.layout.fragment_4, container, false)
-        val button1: Button = v.findViewById(R.id.button)
-        button1.setOnClickListener {
+        val data: TextView = v.findViewById(R.id.data)
+        data.setOnClickListener {
             val intent = Intent(this@Fragment4.context, GetData::class.java)
+            startActivity(intent)
+        }
+
+        val saving: TextView = v.findViewById(R.id.saving)
+        saving.setOnClickListener {
+            val intent = Intent(this@Fragment4.context, GetSaving::class.java)
             startActivity(intent)
         }
 
