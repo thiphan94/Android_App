@@ -7,20 +7,20 @@ android:layout_height="match_parent"
 tools:context=".MainActivity"
 android:background="@drawable/background_color">
 
-<Button
-    android:id="@+id/button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentEnd="true"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentBottom="true"
-    android:layout_marginEnd="175dp"
-    android:layout_marginRight="175dp"
-    android:layout_marginBottom="245dp"
-    android:text="Start"
-    app:backgroundTint="#0B0B0B" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="165dp"
+        android:layout_marginRight="165dp"
+        android:layout_marginBottom="238dp"
+        android:text="Start"
+        app:backgroundTint="#0B0B0B" />
 
-<ImageView
+    <ImageView
     android:id="@+id/imageView"
     android:layout_width="229dp"
     android:layout_height="180dp"

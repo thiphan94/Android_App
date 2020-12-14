@@ -9,118 +9,67 @@ import android.view.ViewGroup
 import android.widget.*
 import com.example.myapplication.R
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.os.Handler
 import android.os.Message
 
 import android.widget.SeekBar
+import com.example.myapplication.DataItem
+import com.example.myapplication.SavingItem
+import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
 
 
 class Fragment3 : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v: View = inflater.inflate(R.layout.fragment_3, container, false)
 
-        var mp: MediaPlayer
-        var totalTime: Int = 0
+        //********************Chose date
 
+        val mPickTimeBtn = v.findViewById<Button>(R.id.pickDateBtn)
+        val textView     = v.findViewById<TextView>(R.id.dateTv)
 
+        val c = Calendar.getInstance()
+        var year = c.get(Calendar.YEAR)
+        var month = c.get(Calendar.MONTH)
+        var day = c.get(Calendar.DAY_OF_MONTH)
+        mPickTimeBtn.setOnClickListener {
 
-        mp = MediaPlayer.create(v.context, R.raw.music)
-        mp.isLooping = true
-        mp.setVolume(0.5f, 0.5f)
-        totalTime = mp.duration
-
-        // Volume Bar
-        var volume = v.findViewById<SeekBar>(R.id.volumeBar)
-        volume.setOnSeekBarChangeListener(
-                object : SeekBar.OnSeekBarChangeListener {
-                    override fun onProgressChanged(seekbar: SeekBar?, progress: Int, fromUser: Boolean) {
-                        if (fromUser) {
-                            var volumeNum = progress / 100.0f
-                            mp.setVolume(volumeNum, volumeNum)
-                        }
+            val dpd = DatePickerDialog(
+                v.context,
+                { _, selyear, monthOfYear, dayOfMonth ->
+                    day = dayOfMonth
+                    month = monthOfYear + 1
+                    year = selyear
+                    if (day == 1) {
+                        textView.text = "$year/$month/0$day"
+                    } else {
+                        textView.text = "$year/$month/$day"
                     }
-                    override fun onStartTrackingTouch(p0: SeekBar?) {
-                    }
-                    override fun onStopTrackingTouch(p0: SeekBar?) {
-                    }
-                }
-        )
 
-        // Position Bar
-        var position = v.findViewById<SeekBar>(R.id.positionBar)
-        position.max = totalTime
-        position.setOnSeekBarChangeListener(
-                object : SeekBar.OnSeekBarChangeListener {
-                    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                        if (fromUser) {
-                            mp.seekTo(progress)
-                        }
-                    }
-                    override fun onStartTrackingTouch(p0: SeekBar?) {
-                    }
-                    override fun onStopTrackingTouch(p0: SeekBar?) {
-                    }
-                }
-        )
 
-        fun createTimeLabel(time: Int): String {
-            var timeLabel = ""
-            var min = time / 1000 / 60
-            var sec = time / 1000 % 60
+                }, year, month, day
+            )
 
-            timeLabel = "$min:"
-            if (sec < 10) timeLabel += "0"
-            timeLabel += sec
 
-            return timeLabel
+            dpd.show()
         }
 
-        @SuppressLint("HandlerLeak")
-        var handler = object : Handler() {
-            override fun handleMessage(msg: Message) {
-                var currentPosition = msg.what
-
-                // Update positionBar
-                position.progress = currentPosition
-
-                // Update Labels
-                val label1    = v.findViewById<TextView>(R.id.elapsedTimeLabel)
-                var elapsedTime = createTimeLabel(currentPosition)
-                label1.text = elapsedTime
-
-                val label2    = v.findViewById<TextView>(R.id.remainingTimeLabel)
-                var remainingTime = createTimeLabel(totalTime - currentPosition)
-                label2.text = "-$remainingTime"
-            }
-        }
-        // Thread
-        Thread(Runnable {
-            while (mp != null) {
-                try {
-                    var msg = Message()
-                    msg.what = mp.currentPosition
-                    handler.sendMessage(msg)
-                    Thread.sleep(1000)
-                } catch (e: InterruptedException) {
-                }
-            }
-        }).start()
+        //******************** Write data to CloudFirestore
 
 
-        val button = v.findViewById<Button>(R.id.playBtn)
-
-
+        val db = FirebaseFirestore.getInstance()
+        val button = v.findViewById<Button>(R.id.button)
+        val money    = v.findViewById<TextView>(R.id.amount)
+        
         button.setOnClickListener {
-            if (mp.isPlaying) {
-                // Stop
-                mp.pause()
-                button.setBackgroundResource(R.drawable.play)
+            val date = textView.text.toString() //date
+            val amount = money.text.toString().toDouble() //amount
 
-            } else {
-                // Start
-                mp.start()
-                button.setBackgroundResource(R.drawable.stop)
+            db.collection("saving").add(SavingItem(date,amount)).addOnCompleteListener {
+                Toast.makeText(v.context, "Saved ! ", Toast.LENGTH_SHORT).show()
             }
+
         }
 
         return v

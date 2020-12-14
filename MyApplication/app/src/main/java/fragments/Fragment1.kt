@@ -35,7 +35,6 @@ class Fragment1 : Fragment() {
         val c = Calendar.getInstance()
         var year = c.get(Calendar.YEAR)
         var month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DATE)
 
 
         //fix error of month
@@ -78,7 +77,7 @@ class Fragment1 : Fragment() {
                 Log.w(TAG, "Error getting documents: ", exception)
             }
 
-        var display = "$day/$month"
+        var display = "$month/$year"
         date_display.text = display
         return v
     }

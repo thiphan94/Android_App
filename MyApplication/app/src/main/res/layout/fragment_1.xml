@@ -4,7 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="214dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginRight="-2dp"
+        android:layout_marginBottom="506dp"
+        android:background="#CB968B" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="137dp"
+        android:layout_height="47dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="245dp"
+        android:layout_marginRight="245dp"
+        android:layout_marginBottom="638dp"
+        android:text="This month: "
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="155dp"
+        android:layout_height="36dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginBottom="643dp"
+        android:text="Day_display"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/textView1"
@@ -15,44 +55,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:layout_marginBottom="527dp"
-        android:background="#3A4E31" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="355dp"
-        android:layout_height="95dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:layout_marginBottom="404dp"
-        android:background="#DEA7AA" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="328dp"
-        android:layout_height="93dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="34dp"
-        android:layout_marginRight="34dp"
-        android:layout_marginBottom="272dp"
-        android:background="#DBACA2" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="274dp"
-        android:layout_height="99dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="135dp"
-        android:background="#CB968B" />
+        android:layout_marginBottom="459dp"
+        android:background="@drawable/boxshape" />
 
     <TextView
         android:id="@+id/textView6"
@@ -63,11 +67,11 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="190dp"
         android:layout_marginRight="190dp"
-        android:layout_marginBottom="553dp"
+        android:layout_marginBottom="530dp"
         android:gravity="center"
         android:text="Total income:"
         android:textColor="@color/white"
-        android:textSize="30dp" />
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/textView7"
@@ -78,24 +82,100 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
-        android:layout_marginBottom="559dp"
+        android:layout_marginBottom="534dp"
         android:gravity="center"
         android:text="0.0"
         android:textColor="@color/white"
-        android:textSize="35dp" />
+        android:textSize="25dp" />
 
     <TextView
-        android:id="@+id/text_date"
-        android:layout_width="155dp"
-        android:layout_height="36dp"
+        android:id="@+id/expense"
+        android:layout_width="326dp"
+        android:layout_height="83dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="218dp"
-        android:layout_marginRight="218dp"
-        android:layout_marginBottom="635dp"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:text="TextView" />
+        android:layout_marginEnd="39dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginBottom="325dp"
+        android:background="@drawable/boxshape2"
+        android:elevation="15dp" />
+
+    <TextView
+        android:id="@+id/expense_display"
+        android:layout_width="146dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="194dp"
+        android:layout_marginRight="194dp"
+        android:layout_marginBottom="348dp"
+        android:elevation="15dp"
+        android:gravity="center"
+        android:text="Total expense:"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/number_display"
+        android:layout_width="146dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="42dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginBottom="344dp"
+        android:elevation="15dp"
+        android:gravity="center"
+        android:text="0.0"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/savings"
+        android:layout_width="326dp"
+        android:layout_height="83dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="38dp"
+        android:layout_marginRight="38dp"
+        android:layout_marginBottom="197dp"
+        android:background="@drawable/boxshape2"
+        android:elevation="15dp" />
+
+    <TextView
+        android:id="@+id/savings_display"
+        android:layout_width="146dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="221dp"
+        android:layout_marginRight="221dp"
+        android:layout_marginBottom="221dp"
+        android:elevation="15dp"
+        android:gravity="center"
+        android:text="Savings:"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/number2_display"
+        android:layout_width="146dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="219dp"
+        android:elevation="15dp"
+        android:gravity="center"
+        android:text="0.0"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
 
 </RelativeLayout>
