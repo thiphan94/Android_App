@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 
+//for display data (income and expense avec date, amount and type)
 class GetData : AppCompatActivity() {
     lateinit var db : FirebaseFirestore
 
