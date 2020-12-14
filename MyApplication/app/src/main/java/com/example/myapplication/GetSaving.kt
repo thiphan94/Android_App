@@ -10,6 +10,7 @@ import android.widget.Spinner
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import java.util.*
 
 class GetSaving : AppCompatActivity() {
@@ -23,7 +24,7 @@ class GetSaving : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        db.collection("saving")
+        db.collection("saving").orderBy("date", Query.Direction.DESCENDING)
             .get()
             .addOnCompleteListener { task ->
                 var list = ArrayList<SavingItem>()

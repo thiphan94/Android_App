@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 
 //for display data (income and expense avec date, amount and type)
 class GetData : AppCompatActivity() {
@@ -22,7 +23,7 @@ class GetData : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        db.collection("data")
+        db.collection("data").orderBy("date", Query.Direction.DESCENDING)
             .get()
             .addOnCompleteListener { task ->
                 var list = ArrayList<DataItem>()

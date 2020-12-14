@@ -82,7 +82,7 @@ class Fragment2 : Fragment() {
                     day = dayOfMonth
                     month = monthOfYear + 1
                     year = selyear
-                    if (day == 1) {
+                    if (day in 1..9) {
                         textView.text = "$year/$month/0$day"
                     } else {
                         textView.text = "$year/$month/$day"

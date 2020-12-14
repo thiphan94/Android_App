@@ -135,9 +135,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="84dp"
-        android:layout_marginRight="84dp"
-        android:layout_marginBottom="568dp"
+        android:layout_marginEnd="87dp"
+        android:layout_marginRight="87dp"
+        android:layout_marginBottom="540dp"
         android:background="@drawable/transparent"
         tools:layout_editor_absoluteX="28dp"
         tools:layout_editor_absoluteY="118dp" />
