@@ -25,7 +25,8 @@ class Fragment1 : Fragment() {
         val v: View = inflater.inflate(R.layout.fragment_1, container, false)
 
         val textDisplay: TextView = v.findViewById(R.id.textView7)
-        val savings: TextView = v.findViewById(R.id.number_display)
+        val expense: TextView = v.findViewById(R.id.number_display)
+        val saving: TextView = v.findViewById(R.id.number2_display)
         val date_display: TextView = v.findViewById(R.id.text_date)
 
         val db = FirebaseFirestore.getInstance()
@@ -96,12 +97,35 @@ class Fragment1 : Fragment() {
                     val itemCost = document.getDouble("amount")!!
                     total += itemCost
                 }
-                savings.text = total.toString()
+                expense.text = total.toString()
             }
 
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
+
+        //Query display total saving and display at a TextView: number2_display
+
+        val query3 = db.collection("saving")
+
+        query3
+            .whereGreaterThanOrEqualTo("date", start)
+            .whereLessThan("date", end)
+            .get()
+            .addOnSuccessListener { documents ->
+                var total = 0.0
+                for (document in documents) {
+                    val itemCost = document.getDouble("amount")!!
+                    total += itemCost
+                }
+                saving.text = total.toString()
+            }
+
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents: ", exception)
+            }
+
+
 
         return v
     }
