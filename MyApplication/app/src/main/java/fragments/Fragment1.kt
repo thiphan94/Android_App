@@ -1,7 +1,6 @@
 package fragments
 
 import android.content.ContentValues.TAG
-import android.icu.text.SimpleDateFormat
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -13,8 +12,6 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.example.myapplication.R
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.type.DateTime
-import java.time.LocalDateTime
 import java.util.*
 
 
@@ -28,6 +25,7 @@ class Fragment1 : Fragment() {
         val v: View = inflater.inflate(R.layout.fragment_1, container, false)
 
         val textDisplay: TextView = v.findViewById(R.id.textView7)
+        val date_display: TextView = v.findViewById(R.id.text_date)
 
         val db = FirebaseFirestore.getInstance()
 
@@ -37,6 +35,9 @@ class Fragment1 : Fragment() {
         val c = Calendar.getInstance()
         var year = c.get(Calendar.YEAR)
         var month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DATE)
+
+
         //fix error of month
         month = if (month == 12){
             1
@@ -76,6 +77,9 @@ class Fragment1 : Fragment() {
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
+
+        var display = "$day/$month"
+        date_display.text = display
         return v
     }
 }

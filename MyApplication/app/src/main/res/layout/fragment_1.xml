@@ -63,7 +63,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="190dp"
         android:layout_marginRight="190dp"
-        android:layout_marginBottom="611dp"
+        android:layout_marginBottom="553dp"
         android:gravity="center"
         android:text="Total income:"
         android:textColor="@color/white"
@@ -76,12 +76,26 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="41dp"
-        android:layout_marginRight="41dp"
-        android:layout_marginBottom="612dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="559dp"
         android:gravity="center"
-        android:text="hello"
+        android:text="0.0"
         android:textColor="@color/white"
         android:textSize="35dp" />
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="155dp"
+        android:layout_height="36dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="218dp"
+        android:layout_marginRight="218dp"
+        android:layout_marginBottom="635dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:text="TextView" />
 
 </RelativeLayout>
