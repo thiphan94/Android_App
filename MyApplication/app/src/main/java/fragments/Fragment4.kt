@@ -47,6 +47,10 @@ class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
         val rating: RatingBar = v.findViewById(R.id.ratingBar)
         display  = v.findViewById(R.id.rating_display)
         rating.onRatingBarChangeListener = this
+
+
+
+
         //**********Logout
         var auth = FirebaseAuth.getInstance()
         auth.addAuthStateListener {
@@ -64,11 +68,18 @@ class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
 
 
 
+
         return v
     }
 
     override fun onRatingChanged(ratingBar: RatingBar?, p1: Float, p2: Boolean) {
         display.text = "$p1"
+        val db = FirebaseFirestore.getInstance()
+        val rating = display.text.toString()
+        db.collection("rating").add(RatingItem(rating)).addOnCompleteListener {
+        }
+
+
     }
 
 
