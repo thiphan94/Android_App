@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="#E2E6DB">
 
     <TextView
         android:id="@+id/textView"
@@ -16,7 +16,7 @@
         android:layout_marginEnd="-2dp"
         android:layout_marginRight="-2dp"
         android:layout_marginBottom="506dp"
-        android:background="#CB968B" />
+        android:background="#CDE4AD" />
 
     <TextView
         android:id="@+id/textView2"
@@ -70,7 +70,7 @@
         android:layout_marginBottom="530dp"
         android:gravity="center"
         android:text="Total income:"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="25dp" />
 
     <TextView
@@ -85,7 +85,7 @@
         android:layout_marginBottom="534dp"
         android:gravity="center"
         android:text="0.0"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="25dp" />
 
     <TextView

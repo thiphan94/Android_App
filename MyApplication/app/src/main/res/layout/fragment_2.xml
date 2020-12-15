@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="#E6F8F8">
 
     <TextView
         android:id="@+id/textView1"
@@ -16,11 +16,11 @@
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
         android:layout_marginBottom="586dp"
-        android:background="#AE4951"
+        android:background="#75DBE0"
         android:gravity="center"
         android:text="Type "
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="30sp" />
 
     <EditText
         android:id="@+id/amount"
@@ -51,8 +51,8 @@
         android:layout_toLeftOf="@+id/dateTv"
         android:background="@drawable/buttonshape"
         android:text="Date"
-        android:textColor="@color/white"
-        app:backgroundTint="#57233A"
+        android:textColor="@color/black"
+        app:backgroundTint="#78D1D2"
         tools:layout_editor_absoluteX="203dp"
         tools:layout_editor_absoluteY="732dp" />
 
@@ -78,16 +78,16 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="272dp"
+        android:layout_marginBottom="279dp"
         android:layout_toStartOf="@+id/spinner"
         android:layout_toLeftOf="@+id/spinner"
         android:background="@drawable/buttonshape"
         android:gravity="center"
         android:text="Categorie"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="16sp"
-        app:backgroundTint="#57233A"
+        app:backgroundTint="#78D1D2"
         tools:layout_editor_absoluteX="203dp"
         tools:layout_editor_absoluteY="732dp" />
 
@@ -98,16 +98,16 @@
         android:layout_above="@+id/textView3"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="41dp"
+        android:layout_marginBottom="32dp"
         android:layout_toStartOf="@+id/amount"
         android:layout_toLeftOf="@+id/amount"
         android:background="@drawable/buttonshape"
         android:gravity="center"
         android:text="Amount"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="16sp"
-        app:backgroundTint="#57233A"
+        app:backgroundTint="#78D1D2"
         tools:layout_editor_absoluteX="203dp"
         tools:layout_editor_absoluteY="732dp" />
 
@@ -135,9 +135,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="87dp"
-        android:layout_marginRight="87dp"
-        android:layout_marginBottom="540dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="546dp"
         android:background="@drawable/transparent"
         tools:layout_editor_absoluteX="28dp"
         tools:layout_editor_absoluteY="118dp" />
@@ -155,9 +155,9 @@
         android:background="@drawable/buttonshape"
         android:gravity="center"
         android:text="ADD"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="14sp"
-        app:backgroundTint="#161B1F" />
+        app:backgroundTint="#97DBAE" />
 
     <TextView
         android:id="@+id/textView8"
