@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -19,6 +20,13 @@ class Login : AppCompatActivity() {
         val button: Button = findViewById(R.id.btnSignup)
         button.setOnClickListener {
             val intent = Intent(this@Login, SignUp::class.java)
+            startActivity(intent)
+        }
+
+        //*************go to Activity ResetPasswordActivity
+        val reset: TextView = findViewById(R.id.reset)
+        reset.setOnClickListener {
+            val intent = Intent(this@Login, ResetPasswordActivity::class.java)
             startActivity(intent)
         }
 

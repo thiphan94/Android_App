@@ -116,7 +116,7 @@
         tools:layout_editor_absoluteY="472dp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/log"
@@ -125,7 +125,7 @@
         android:layout_marginEnd="52dp"
         android:layout_marginRight="52dp"
         android:layout_marginBottom="235dp"
-        android:text="ForgotPassword?"
+        android:text="Forgot Password ?"
         android:textColor="@color/white"
         tools:layout_editor_absoluteX="314dp"
         tools:layout_editor_absoluteY="572dp" />
