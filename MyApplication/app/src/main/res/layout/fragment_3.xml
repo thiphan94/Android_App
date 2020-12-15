@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6F8F8">
+    android:background="#EADFCE">
 
     <TextView
         android:id="@+id/textView1"
@@ -15,8 +15,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="0dp"
         android:layout_marginRight="0dp"
-        android:layout_marginBottom="578dp"
-        android:background="#75DBE0"
+        android:layout_marginBottom="572dp"
+        android:background="#578F53"
         android:gravity="center"
         android:text="Saving"
         android:textColor="@color/black"
@@ -51,8 +51,8 @@
         android:layout_toLeftOf="@+id/dateTv"
         android:background="@drawable/buttonshape"
         android:text="Date"
-        android:textColor="@color/black"
-        app:backgroundTint="#78D1D2"
+        android:textColor="@color/white"
+        app:backgroundTint="#1D3C26"
         tools:layout_editor_absoluteX="203dp"
         tools:layout_editor_absoluteY="732dp" />
 
@@ -86,8 +86,8 @@
         android:text="Amount"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="16sp"
-        android:textColor="@color/black"
-        app:backgroundTint="#78D1D2"
+        android:textColor="@color/white"
+        app:backgroundTint="#1D3C26"
         tools:layout_editor_absoluteX="203dp"
         tools:layout_editor_absoluteY="732dp" />
 
@@ -104,9 +104,9 @@
         android:background="@drawable/buttonshape"
         android:gravity="center"
         android:text="ADD"
-        android:textColor="@color/black"
         android:textSize="14sp"
-        app:backgroundTint="#97DBAE" />
+        android:textColor="@color/white"
+        app:backgroundTint="#1D3C26" />
 
 
 </RelativeLayout>
