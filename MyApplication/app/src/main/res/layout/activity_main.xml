@@ -14,9 +14,9 @@ android:background="@drawable/background_color">
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="165dp"
-        android:layout_marginRight="165dp"
-        android:layout_marginBottom="238dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginRight="168dp"
+        android:layout_marginBottom="304dp"
         android:text="Start"
         app:backgroundTint="#0B0B0B" />
 
@@ -31,6 +31,24 @@ android:background="@drawable/background_color">
     android:layout_marginRight="95dp"
     android:layout_marginBottom="424dp"
     app:srcCompat="@drawable/piggy" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="279dp"
+        android:layout_height="98dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="58dp"
+        android:layout_marginRight="58dp"
+        android:layout_marginBottom="146dp"
+        android:text="Money Balance"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:textStyle="normal|bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="94dp" />
 
 
 </RelativeLayout>
