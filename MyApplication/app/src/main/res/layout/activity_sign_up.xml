@@ -32,7 +32,7 @@
         android:layout_above="@+id/btnSignup"
         android:layout_marginBottom="25dp"
         android:background="@drawable/loginbuttonshape"
-        android:text="Login"
+        android:text="Log in"
         android:textColor="@android:color/black"
         app:backgroundTint="?attr/colorButtonNormal"
         tools:layout_editor_absoluteY="396dp" />
@@ -44,7 +44,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="360dp"
         android:background="@drawable/loginbuttonshape"
-        android:text="Signup"
+        android:text="Sign up"
         android:textColor="@android:color/white"
         app:backgroundTint="@color/black"
         tools:layout_editor_absoluteY="336dp" />

@@ -18,7 +18,7 @@
         android:layout_marginEnd="160dp"
         android:layout_marginRight="160dp"
         android:layout_marginBottom="624dp"
-        android:text="Login"
+        android:text="Log in"
         android:textColor="@color/black"
         android:textSize="36sp"
         android:textStyle="normal|bold"
@@ -34,10 +34,8 @@
         android:layout_marginEnd="44dp"
         android:layout_marginRight="44dp"
         android:layout_marginBottom="20dp"
-        android:layout_toStartOf="@+id/editText"
-        android:layout_toLeftOf="@+id/editText"
         android:background="@drawable/loginbuttonshape"
-        android:text="Login"
+        android:text="Log in"
         app:backgroundTint="@color/black"
         tools:layout_editor_absoluteY="429dp" />
 
@@ -48,7 +46,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="410dp"
         android:background="@drawable/loginbuttonshape"
-        android:text="Signup"
+        android:text="Sign up"
         android:textColor="@android:color/black"
         app:backgroundTint="?attr/colorButtonNormal"
         tools:layout_editor_absoluteY="429dp" />
