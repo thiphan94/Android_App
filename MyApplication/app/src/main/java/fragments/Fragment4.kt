@@ -11,10 +11,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.SeekBar
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.*
@@ -25,7 +22,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 
 
-class Fragment4 : Fragment() {
+class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
+    private lateinit var display: TextView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,6 +42,11 @@ class Fragment4 : Fragment() {
             startActivity(intent)
         }
 
+
+        //******RatingBar
+        val rating: RatingBar = v.findViewById(R.id.ratingBar)
+        display  = v.findViewById(R.id.rating_display)
+        rating.onRatingBarChangeListener = this
         //**********Logout
         var auth = FirebaseAuth.getInstance()
         auth.addAuthStateListener {
@@ -59,10 +62,14 @@ class Fragment4 : Fragment() {
         }
 
 
+
+
         return v
     }
 
-
+    override fun onRatingChanged(ratingBar: RatingBar?, p1: Float, p2: Boolean) {
+        display.text = "$p1"
+    }
 
 
 }

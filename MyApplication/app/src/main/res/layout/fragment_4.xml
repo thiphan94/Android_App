@@ -35,6 +35,36 @@
         android:text="Data"
         android:textSize="30dp" />
 
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginRight="141dp"
+        android:layout_marginBottom="190dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:rating="1"
+        android:stepSize="0.5" />
+
+    <TextView
+        android:id="@+id/rating_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="69dp"
+        android:layout_marginRight="69dp"
+        android:layout_marginBottom="197dp"
+        android:text="0"
+        android:textSize="32sp" />
+
     <Button
         android:id="@+id/btn_logout"
         android:layout_width="248dp"
