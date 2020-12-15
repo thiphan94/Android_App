@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        title = "Budget App"
+        title = "Money Balance"
         val button: Button = findViewById(R.id.button)
         button.setOnClickListener {
             val intent = Intent(this@MainActivity, Login::class.java)

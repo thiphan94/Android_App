@@ -5,17 +5,12 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Money Blance"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity android:name=".GetSaving"></activity>
         <activity android:name=".GetData" />
-        <activity android:name=".Account" />
-        <activity android:name=".DataBaseHandler" />
-        <activity android:name=".User" />
-        <activity android:name=".DataBaseHelper" />
-        <activity android:name=".Expense" />
         <activity android:name=".SignUp" />
         <activity android:name=".Login" />
         <activity android:name=".First" />
