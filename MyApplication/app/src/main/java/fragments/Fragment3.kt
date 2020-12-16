@@ -12,6 +12,7 @@ import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.os.Handler
 import android.os.Message
+import android.text.TextUtils
 
 import android.widget.SeekBar
 import com.example.myapplication.DataItem
@@ -24,7 +25,7 @@ class Fragment3 : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v: View = inflater.inflate(R.layout.fragment_3, container, false)
 
-        //********************Chose date
+        //*******Chose date
 
         val mPickTimeBtn = v.findViewById<Button>(R.id.pickDateBtn)
         val textView     = v.findViewById<TextView>(R.id.dateTv)
@@ -51,11 +52,10 @@ class Fragment3 : Fragment() {
                 }, year, month, day
             )
 
-
             dpd.show()
         }
 
-        //******************** Write data to CloudFirestore
+        //******* Write data to Firestore
 
 
         val db = FirebaseFirestore.getInstance()
@@ -64,14 +64,26 @@ class Fragment3 : Fragment() {
         
         button.setOnClickListener {
             val date = textView.text.toString() //date
-            val amount = money.text.toString().toDouble() //amount
 
+            var amount : Double = 0.0
+
+            //check if you enter date or amount or not
+            amount = if(TextUtils.isEmpty(money.text.toString())) {
+                0.0
+            } else {
+                money.text.toString().toDouble() //amount
+            }
+            if(date.trim().isEmpty() || amount == 0.0 ){
+                Toast.makeText(
+                        v.context, "Please enter date or amount  !",
+                        Toast.LENGTH_LONG
+                ).show()
+                return@setOnClickListener
+            }
             db.collection("saving").add(SavingItem(date,amount)).addOnCompleteListener {
                 Toast.makeText(v.context, "Saved ! ", Toast.LENGTH_SHORT).show()
             }
-
         }
-
         return v
     }
 

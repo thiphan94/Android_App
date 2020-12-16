@@ -3,6 +3,7 @@ package fragments
 import android.app.DatePickerDialog
 import android.os.Build
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -99,11 +100,10 @@ class Fragment2 : Fragment() {
 
 
         val db = FirebaseFirestore.getInstance()
-        val data = HashMap<String, Any>()
         val button = v.findViewById<Button>(R.id.button)
         val money    = v.findViewById<TextView>(R.id.amount)
 
-        var idx: String =""
+        var idx: String ="" //id of selected item of spinner categories
 
         spinner.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(
@@ -112,7 +112,7 @@ class Fragment2 : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                idx = modelList[position].getId()
+                idx = modelList[position].getId()// get id of selected item of spinner categories
             }
 
             override fun onNothingSelected(arg0: AdapterView<*>?) {}
@@ -121,10 +121,16 @@ class Fragment2 : Fragment() {
         button.setOnClickListener {
             val type = spinner2.selectedItem.toString() // selected value of spinner (Income or Expense) >>> string
             val date = textView.text.toString() //date
-            val amount = money.text.toString().toDouble() //amount
             val category = idx // selected value of spinner (categories) >>> string
+            var amount : Double = 0.0
 
-            if(date.trim().isEmpty()){
+            //check if you enter date or amount or not
+            amount = if(TextUtils.isEmpty(money.text.toString())) {
+                0.0
+            } else {
+                money.text.toString().toDouble() //amount
+            }
+            if(date.trim().isEmpty() || amount == 0.0 ){
                 Toast.makeText(
                         v.context, "Please enter date or amount  !",
                         Toast.LENGTH_LONG
@@ -136,13 +142,9 @@ class Fragment2 : Fragment() {
                     Toast.makeText(v.context, "Saved ! ", Toast.LENGTH_SHORT).show()
                 }
             }
-
         }
-
-
         return v
     }
-
 
 }
 
