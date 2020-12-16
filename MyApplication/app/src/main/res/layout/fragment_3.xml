@@ -83,7 +83,7 @@
         android:layout_toLeftOf="@+id/amount"
         android:background="@drawable/buttonshape"
         android:gravity="center"
-        android:text="Amount"
+        android:text="AMOUNT"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textSize="16sp"
         android:textColor="@color/white"
