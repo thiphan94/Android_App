@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.firebase.firestore.SetOptions
 
 
 class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
@@ -48,13 +49,13 @@ class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
 
         //******RatingBar
         val rating: RatingBar = v.findViewById(R.id.ratingBar)
-        display  = v.findViewById(R.id.rating_display)
+        display = v.findViewById(R.id.rating_display)
         rating.onRatingBarChangeListener = this
 
         //**********Logout
         var auth = FirebaseAuth.getInstance()
         auth.addAuthStateListener {
-            if (auth.currentUser == null){
+            if (auth.currentUser == null) {
                 activity?.finish()
             }
         }
@@ -64,9 +65,26 @@ class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
             auth.signOut()
         }
 
+
+        //*******Spinner of currency
+        val types = arrayOf("EUR", "USD", "CNY", "SGD", "JYP", "CAD", "RUB")
+        val spinner = v.findViewById<Spinner>(R.id.spinner)
+        if (spinner != null) {
+            val arrayAdapter = ArrayAdapter(v.context, android.R.layout.simple_spinner_item, types)
+            spinner.adapter = arrayAdapter
+        }
+
+        val db = FirebaseFirestore.getInstance()
+        val set: Button = v.findViewById(R.id.btn_set)
+        set.setOnClickListener {
+            val type = spinner.selectedItem.toString() // selected value of spinner  >>> string
+
+            db.collection("currency").document("item").set(CurrencyItem(type))
+
+        }
+        
         return v
     }
-
     //*******RatingBar
     override fun onRatingChanged(ratingBar: RatingBar?, p1: Float, p2: Boolean) {
         display.text = "$p1"
@@ -75,5 +93,7 @@ class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
         db.collection("rating").add(RatingItem(rating)).addOnCompleteListener {
         }
     }
+
+
 
 }
