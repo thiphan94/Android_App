@@ -44,13 +44,22 @@ class Fragment3 : Fragment() {
                     year = selyear
                     //check day and month, if they are small then 10, add 0 before day and month
                     //for the format yyyy/mm/dd
-                    if (day in 1..9) {
-                        textView.text = "$year/$month/0$day"
-                    } else {
-                        textView.text = "$year/$month/$day"
+                    if ((day in 1..9) && (month in 1..9)) {
+                        textView.text = "$year/0$month/0$day"
                     }
-
-
+                    else{
+                        if (day in 1..9) {
+                            textView.text = "$year/$month/0$day"
+                        }
+                        else{
+                            if (month in 1..9) {
+                                textView.text = "$year/0$month/$day"
+                            }
+                            else {
+                                textView.text = "$year/$month/$day"
+                            }
+                        }
+                    }
                 }, year, month, day
             )
 
