@@ -27,6 +27,8 @@ class Fragment1 : Fragment() {
 
         val textDisplay: TextView = v.findViewById(R.id.textView7)
         val currency: TextView = v.findViewById(R.id.currency)
+        val currency2: TextView = v.findViewById(R.id.currency2)
+        val currency3: TextView = v.findViewById(R.id.currency3)
         val expense: TextView = v.findViewById(R.id.number_display)
         val saving: TextView = v.findViewById(R.id.number2_display)
         val date_display: TextView = v.findViewById(R.id.text_date)
@@ -94,6 +96,8 @@ class Fragment1 : Fragment() {
                 .addOnSuccessListener { document ->
                     if(document.exists()){
                         currency.text = document.getString("type")
+                        currency2.text = document.getString("type")
+                        currency3.text = document.getString("type")
                     }
                 }
 

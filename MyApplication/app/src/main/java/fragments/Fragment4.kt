@@ -24,7 +24,7 @@ import com.google.firebase.firestore.SetOptions
 
 
 class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
-    private lateinit var display: TextView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,11 +46,14 @@ class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
             startActivity(intent)
         }
 
+        //when click Rating, go to Activity Rating
+        val star: TextView = v.findViewById(R.id.rating)
+        star.setOnClickListener {
+            val intent = Intent(this@Fragment4.context, Rating::class.java)
+            startActivity(intent)
+        }
 
-        //******RatingBar
-        val rating: RatingBar = v.findViewById(R.id.ratingBar)
-        display = v.findViewById(R.id.rating_display)
-        rating.onRatingBarChangeListener = this
+
 
         //**********Logout
         var auth = FirebaseAuth.getInstance()
@@ -86,15 +89,9 @@ class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
 
         return v
     }
-    //*******RatingBar
-    override fun onRatingChanged(ratingBar: RatingBar?, p1: Float, p2: Boolean) {
-        display.text = "$p1"
-        val db = FirebaseFirestore.getInstance()
-        val rating = display.text.toString()
-        db.collection("rating").add(RatingItem(rating)).addOnCompleteListener {
-        }
+
+    override fun onRatingChanged(ratingBar: RatingBar?, rating: Float, fromUser: Boolean) {
+        TODO("Not yet implemented")
     }
-
-
 
 }
