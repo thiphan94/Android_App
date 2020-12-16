@@ -103,7 +103,7 @@ class Fragment2 : Fragment() {
         val button = v.findViewById<Button>(R.id.button)
         val money    = v.findViewById<TextView>(R.id.amount)
 
-        val test    = v.findViewById<TextView>(R.id.textView8)
+        var idx: String =""
 
         spinner.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(
@@ -112,8 +112,7 @@ class Fragment2 : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                val id: String = modelList[position].getId()
-                test.text = id
+                idx = modelList[position].getId()
             }
 
             override fun onNothingSelected(arg0: AdapterView<*>?) {}
@@ -123,7 +122,7 @@ class Fragment2 : Fragment() {
             val type = spinner2.selectedItem.toString() // selected value of spinner (Income or Expense) >>> string
             val date = textView.text.toString() //date
             val amount = money.text.toString().toDouble() //amount
-            val category = test.text.toString()// selected value of spinner (categories) >>> string
+            val category = idx // selected value of spinner (categories) >>> string
 
             db.collection("data").add(DataItem(type, date, amount, category)).addOnCompleteListener {
                 Toast.makeText(v.context, "Saved ! ", Toast.LENGTH_SHORT).show()

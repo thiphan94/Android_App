@@ -63,8 +63,8 @@
         android:layout_above="@+id/amount"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="46dp"
-        android:layout_marginRight="46dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginRight="51dp"
         android:layout_marginBottom="34dp"
         android:background="@drawable/boxshape3"
         android:textSize="18sp"
@@ -78,15 +78,15 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="279dp"
+        android:layout_marginBottom="256dp"
         android:layout_toStartOf="@+id/spinner"
         android:layout_toLeftOf="@+id/spinner"
         android:background="@drawable/buttonshape"
         android:gravity="center"
-        android:text="Categorie"
+        android:text="CATEGORY"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="16sp"
         android:textColor="@color/white"
+        android:textSize="16sp"
         app:backgroundTint="#1D3C26"
         tools:layout_editor_absoluteX="203dp"
         tools:layout_editor_absoluteY="732dp" />
@@ -103,7 +103,7 @@
         android:layout_toLeftOf="@+id/amount"
         android:background="@drawable/buttonshape"
         android:gravity="center"
-        android:text="Amount"
+        android:text="AMOUNT"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/white"
         app:backgroundTint="#1D3C26"
@@ -120,7 +120,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
-        android:layout_marginBottom="271dp"
+        android:layout_marginBottom="249dp"
         android:background="@drawable/boxshape3"
         android:scrollbarThumbHorizontal="@drawable/ic_launcher_background"
         android:scrollbarTrackHorizontal="@color/purple_500"
@@ -135,9 +135,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginBottom="546dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginRight="77dp"
+        android:layout_marginBottom="514dp"
         android:background="@drawable/transparent"
         tools:layout_editor_absoluteX="28dp"
         tools:layout_editor_absoluteY="118dp" />
@@ -159,17 +159,6 @@
         android:textColor="@color/white"
         app:backgroundTint="#1D3C26" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="178dp"
-        android:layout_height="51dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="46dp"
-        android:layout_marginRight="46dp"
-        android:layout_marginBottom="204dp"
-        android:text="TextView" />
 
 
 </RelativeLayout>
