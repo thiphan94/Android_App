@@ -11,8 +11,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import java.text.FieldPosition
 
+//Adapter for write savings to Firestore
 class SavingAdapter(var list: ArrayList<SavingItem>) : RecyclerView.Adapter<SavingAdapter.ViewHolder>() {
-
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
@@ -20,8 +20,6 @@ class SavingAdapter(var list: ArrayList<SavingItem>) : RecyclerView.Adapter<Savi
         var amount = itemView.findViewById(R.id.amount) as TextView
 
     }
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.saving_layout, parent,false))
@@ -34,12 +32,6 @@ class SavingAdapter(var list: ArrayList<SavingItem>) : RecyclerView.Adapter<Savi
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.date.text = list[position].date
         holder.amount.text = list[position].amount.toString()
-
-
     }
-
-
-
-
 
 }
