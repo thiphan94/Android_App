@@ -31,11 +31,14 @@ class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
     ): View? {
         val v: View = inflater.inflate(R.layout.fragment_4, container, false)
         val data: TextView = v.findViewById(R.id.data)
+
+        //when click Data, go to Activity GetData
         data.setOnClickListener {
             val intent = Intent(this@Fragment4.context, GetData::class.java)
             startActivity(intent)
         }
 
+        //when click Saving, go to Activity GetSaving
         val saving: TextView = v.findViewById(R.id.saving)
         saving.setOnClickListener {
             val intent = Intent(this@Fragment4.context, GetSaving::class.java)
@@ -48,9 +51,6 @@ class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
         display  = v.findViewById(R.id.rating_display)
         rating.onRatingBarChangeListener = this
 
-
-
-
         //**********Logout
         var auth = FirebaseAuth.getInstance()
         auth.addAuthStateListener {
@@ -62,25 +62,18 @@ class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
         logout.setOnClickListener {
             Toast.makeText(v.context, "Logging Out...", Toast.LENGTH_LONG).show()
             auth.signOut()
-
         }
-
-
-
-
 
         return v
     }
 
+    //*******RatingBar
     override fun onRatingChanged(ratingBar: RatingBar?, p1: Float, p2: Boolean) {
         display.text = "$p1"
         val db = FirebaseFirestore.getInstance()
         val rating = display.text.toString()
         db.collection("rating").add(RatingItem(rating)).addOnCompleteListener {
         }
-
-
     }
-
 
 }

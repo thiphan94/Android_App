@@ -42,6 +42,8 @@ class Fragment3 : Fragment() {
                     day = dayOfMonth
                     month = monthOfYear + 1
                     year = selyear
+                    //check day and month, if they are small then 10, add 0 before day and month
+                    //for the format yyyy/mm/dd
                     if (day in 1..9) {
                         textView.text = "$year/$month/0$day"
                     } else {
@@ -56,7 +58,6 @@ class Fragment3 : Fragment() {
         }
 
         //******* Write data to Firestore
-
 
         val db = FirebaseFirestore.getInstance()
         val button = v.findViewById<Button>(R.id.button)

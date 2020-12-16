@@ -15,22 +15,22 @@ class SignUp : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        //return Login page
+        //back to Activity Login
         val button: Button = findViewById(R.id.login)
         button.setOnClickListener {
             val intent = Intent(this@SignUp, Login::class.java)
             startActivity(intent)
         }
 
+        //when click button Sign Up, call function
         val button2: Button = findViewById(R.id.button3)
         button2.setOnClickListener {
-            performRegister()
+            performRegister()//call function performRegister to create an account
         }
-
-
 
     }
 
+    //*******Sign up
     private fun performRegister(){
         val email : EditText = findViewById(R.id.mail)
         val password : EditText = findViewById(R.id.password)
@@ -38,6 +38,7 @@ class SignUp : AppCompatActivity() {
         val string1 = email.text.toString()
         val string2 = password.text.toString()
 
+        //check if EditText of email and password are empty or not
         if(string1.isEmpty() ||string2.isEmpty()){
             Toast.makeText(this, "Please enter text in email/password", Toast.LENGTH_SHORT).show()
             return
@@ -45,7 +46,6 @@ class SignUp : AppCompatActivity() {
 
         Log.d("SignUp","Email is " + email)
         Log.d("SignUp","Password :  $password")
-
 
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(string1, string2)
             .addOnCompleteListener {
@@ -58,6 +58,5 @@ class SignUp : AppCompatActivity() {
                 Log.d("SignUp", "Failed to create user: ${it.message}")
                 Toast.makeText(this, "Failed to create user: ${it.message}", Toast.LENGTH_SHORT).show()
             }
-
     }
 }

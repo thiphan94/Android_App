@@ -38,7 +38,6 @@ class Fragment1 : Fragment() {
         var year = c.get(Calendar.YEAR)
         var month = c.get(Calendar.MONTH)
 
-
         //fix error of month
         month = if (month == 12){
             1
@@ -124,8 +123,6 @@ class Fragment1 : Fragment() {
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents: ", exception)
             }
-
-
 
         return v
     }

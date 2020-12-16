@@ -32,9 +32,10 @@ class Fragment2 : Fragment() {
         //*******Spinner image + text for les categories
         val spinner = v.findViewById<Spinner>(R.id.spinner)
 
-
+        //function read data from file json to List<Model> which contain image and icon of categories
         fun readFromAsset(): List<Model> {
-            val file_name = "android_version.json"
+            //file in folder assets
+            val file_name = "android_version.json"//file contain name and icon of categories
 
             val bufferReader = v.context.assets.open(file_name).bufferedReader()
 
@@ -42,6 +43,7 @@ class Fragment2 : Fragment() {
                 it.readText()
             }
             val gson = Gson()
+
             val modelList: List<Model> =
                 gson.fromJson(json_string, Array<Model>::class.java).toList()
             return modelList
@@ -50,9 +52,6 @@ class Fragment2 : Fragment() {
 
         val customDropDownAdapter = CustomDropDownAdapter(v.context, modelList)
         spinner.adapter = customDropDownAdapter
-
-
-
 
 
         //*******Spinner for types ( Income or Expense)
@@ -64,7 +63,6 @@ class Fragment2 : Fragment() {
             spinner2.adapter = arrayAdapter
 
         }
-
 
         //*******Chose date
 
@@ -83,21 +81,20 @@ class Fragment2 : Fragment() {
                     day = dayOfMonth
                     month = monthOfYear + 1
                     year = selyear
+                    //check day and month, if they are small then 10, add 0 before day and month
+                    //for the format yyyy/mm/dd
                     if (day in 1..9) {
                         textView.text = "$year/0$month/0$day"
                     } else {
                         textView.text = "$year/$month/$day"
                     }
 
-
                 }, year, month, day
             )
-
 
             dpd.show()
         }
         //*******Write data to Firestore
-
 
         val db = FirebaseFirestore.getInstance()
         val button = v.findViewById<Button>(R.id.button)
