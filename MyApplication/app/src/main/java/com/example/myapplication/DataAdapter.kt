@@ -7,8 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.collections.ArrayList
 
+//Adapter for write data to Firestore
 class DataAdapter(var list: ArrayList<DataItem>) : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
-
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
@@ -17,8 +17,6 @@ class DataAdapter(var list: ArrayList<DataItem>) : RecyclerView.Adapter<DataAdap
         var amount = itemView.findViewById(R.id.amount) as TextView
         var category = itemView.findViewById(R.id.category) as TextView
     }
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent,false))
@@ -35,9 +33,5 @@ class DataAdapter(var list: ArrayList<DataItem>) : RecyclerView.Adapter<DataAdap
         holder.category.text = list[position].category
 
     }
-
-
-
-
 
 }

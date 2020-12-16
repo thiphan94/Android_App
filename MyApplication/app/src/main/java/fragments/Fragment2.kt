@@ -28,7 +28,7 @@ class Fragment2 : Fragment() {
     ): View? {
         val v: View = inflater.inflate(R.layout.fragment_2, container, false)
 
-        //******************Spinner image + text for les categories
+        //*******Spinner image + text for les categories
         val spinner = v.findViewById<Spinner>(R.id.spinner)
 
 
@@ -54,7 +54,7 @@ class Fragment2 : Fragment() {
 
 
 
-        //******************Spinner for types ( Income or Expense)
+        //*******Spinner for types ( Income or Expense)
 
         val types = arrayOf("Income", "Expense")
         val spinner2 = v.findViewById<Spinner>(R.id.spinner2)
@@ -65,7 +65,7 @@ class Fragment2 : Fragment() {
         }
 
 
-        //********************Chose date
+        //*******Chose date
 
         val mPickTimeBtn = v.findViewById<Button>(R.id.pickDateBtn)
         val textView     = v.findViewById<TextView>(R.id.dateTv)
@@ -95,7 +95,7 @@ class Fragment2 : Fragment() {
 
             dpd.show()
         }
-        //******************** Write data to CloudFirestore
+        //*******Write data to Firestore
 
 
         val db = FirebaseFirestore.getInstance()
@@ -124,8 +124,17 @@ class Fragment2 : Fragment() {
             val amount = money.text.toString().toDouble() //amount
             val category = idx // selected value of spinner (categories) >>> string
 
-            db.collection("data").add(DataItem(type, date, amount, category)).addOnCompleteListener {
-                Toast.makeText(v.context, "Saved ! ", Toast.LENGTH_SHORT).show()
+            if(date.trim().isEmpty()){
+                Toast.makeText(
+                        v.context, "Please enter date or amount  !",
+                        Toast.LENGTH_LONG
+                ).show()
+                return@setOnClickListener
+            }
+            else{
+                db.collection("data").add(DataItem(type, date, amount, category)).addOnCompleteListener {
+                    Toast.makeText(v.context, "Saved ! ", Toast.LENGTH_SHORT).show()
+                }
             }
 
         }
