@@ -77,12 +77,12 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
-        android:layout_marginBottom="55dp"
-        android:text="LOG OUT"
+        android:layout_marginBottom="89dp"
         android:background="@drawable/buttonshape"
-        android:textSize="14sp"
+        android:text="LOG OUT"
         android:textColor="@color/white"
-        app:backgroundTint="#1D3C26"/>
+        android:textSize="14sp"
+        app:backgroundTint="#1D3C26" />
 
 
 </RelativeLayout>
