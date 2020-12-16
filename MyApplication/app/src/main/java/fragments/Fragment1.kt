@@ -56,9 +56,11 @@ class Fragment1 : Fragment() {
         if(month2 == 1){
             year2 += 1
         }
+        //array [start,end)
         val start = "$year/$month/01"
         val end = "$year2/$month2/01"
-        //array [start,end)
+
+
         //query of total income in month current
         query1
             .whereEqualTo("type", "Income")
