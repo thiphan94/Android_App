@@ -1,6 +1,6 @@
 ﻿# Application Kotlin - Money Balance
 
-![alt text](./images/Capture.png)
+![alt text](./images/Capture.PNG)
 
 This application helps users track their incomes, expenses and savings.
 
