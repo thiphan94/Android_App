@@ -82,7 +82,8 @@ class Fragment4 : Fragment(), RatingBar.OnRatingBarChangeListener {
             db.collection("currency").document("item").set(CurrencyItem(type))
 
         }
-        
+
+
         return v
     }
     //*******RatingBar

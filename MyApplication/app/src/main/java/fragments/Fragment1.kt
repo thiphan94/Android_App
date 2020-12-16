@@ -12,6 +12,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.example.myapplication.R
 import com.google.firebase.firestore.FirebaseFirestore
+import java.nio.file.Paths.get
 import java.util.*
 
 
@@ -25,6 +26,7 @@ class Fragment1 : Fragment() {
         val v: View = inflater.inflate(R.layout.fragment_1, container, false)
 
         val textDisplay: TextView = v.findViewById(R.id.textView7)
+        val currency: TextView = v.findViewById(R.id.currency)
         val expense: TextView = v.findViewById(R.id.number_display)
         val saving: TextView = v.findViewById(R.id.number2_display)
         val date_display: TextView = v.findViewById(R.id.text_date)
@@ -82,6 +84,22 @@ class Fragment1 : Fragment() {
 
         var display = "$month/$year"
         date_display.text = display
+
+        //Query display currency and display at a TextView: currency
+
+        val query4 = db.collection("currency").document("item")
+
+        query4
+                .get()
+                .addOnSuccessListener { document ->
+                    if(document.exists()){
+                        currency.text = document.getString("type")
+                    }
+                }
+
+                .addOnFailureListener { exception ->
+                    Log.w(TAG, "Error getting documents: ", exception)
+                }
 
         //Query display total expense and display at a TextView: number_display
 
