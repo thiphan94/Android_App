@@ -1,5 +1,7 @@
 ﻿# Application Kotlin - Money Balance
 
+![alt text](./images/Capture.png)
+
 This application helps users track their incomes, expenses and savings.
 
 To run this application in Android Studio, please create a virtual device like this:
