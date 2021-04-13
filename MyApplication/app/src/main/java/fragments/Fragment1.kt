@@ -106,10 +106,6 @@ class Fragment1 : Fragment() {
                 Log.w(TAG, "Error getting documents: ", exception)
             }
 
-
-
-
-
         //Query display currency and display at a TextView: currency
 
         val query4 = db.collection("currency").document("item")
