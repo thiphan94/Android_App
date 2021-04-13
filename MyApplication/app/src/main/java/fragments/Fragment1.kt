@@ -49,20 +49,42 @@ class Fragment1 : Fragment() {
             month + 1
         }
         //fix month_end
-        var month2: Int = 0
+        var month2: Int = month
         month2 = if (month == 12){
             1
         } else{
-            month + 1
+            month2 + 1
         }
         //fix year_end
         var year2 = year
         if(month2 == 1){
             year2 += 1
         }
-        //array [start,end)
-        val start = "$year/$month/01"
-        val end = "$year2/$month2/01"
+
+        var start: String
+        var end: String
+        var display = ""
+
+        //format of current month
+        if (month in 1..9) {
+            start = "$year/0$month/01"
+            end = "$year2/0$month2/01"
+            display = "0$month/$year"
+        }
+        else{
+            if (month == 12){
+                start = "$year/$month/01"
+                end = "$year2/0$month2/01"
+                display = "0$month/$year"
+            }
+            else{
+                start = "$year/$month/01"
+                end = "$year2/$month2/01"
+            }
+        }
+
+        // display current month to text
+        date_display.text = display
 
 
         //query of total income in month current
@@ -84,8 +106,9 @@ class Fragment1 : Fragment() {
                 Log.w(TAG, "Error getting documents: ", exception)
             }
 
-        var display = "$month/$year"
-        date_display.text = display
+
+
+
 
         //Query display currency and display at a TextView: currency
 
