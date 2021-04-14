@@ -22,8 +22,6 @@ class GetData : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_get_data)
 
-
-
         //*******Chose date
 
         val mPickTimeBtn = findViewById<Button>(R.id.pickDateBtn)
@@ -33,7 +31,6 @@ class GetData : AppCompatActivity() {
         var month = c.get(Calendar.MONTH)
         var day = c.get(Calendar.DAY_OF_MONTH)
 
-        var s : String
         mPickTimeBtn.setOnClickListener {
 
             val dpd = DatePickerDialog(
@@ -46,21 +43,17 @@ class GetData : AppCompatActivity() {
                         //for the format yyyy/mm/dd
                         if ((day in 1..9) && (month in 1..9)) {
                             textView.text = "$year/0$month/0$day"
-                            s = "$year/0$month/0$day"
                         }
                         else{
                             if (day in 1..9) {
                                 textView.text = "$year/$month/0$day"
-                                s = "$year/$month/0$day"
                             }
                             else{
                                 if (month in 1..9) {
                                     textView.text = "$year/0$month/$day"
-                                    s = "$year/0$month/$day"
                                 }
                                 else {
                                     textView.text = "$year/$month/$day"
-                                    s = "$year/$month/$day"
                                 }
                             }
                         }

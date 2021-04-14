@@ -4,20 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GetSaving">
+    tools:context=".GetSaving"
+    android:background="#EADFCE">
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="381dp"
-        android:layout_height="647dp"
+        android:layout_width="350dp"
+        android:layout_height="470dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="69dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginRight="34dp"
+        android:layout_marginBottom="51dp" />
+
+    <Button
+        android:id="@+id/pickDateBtn"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
+        android:layout_marginBottom="576dp"
+        android:layout_toStartOf="@+id/dateTv"
+        android:layout_toLeftOf="@+id/dateTv"
+        android:background="@drawable/buttonshape"
+        android:text="Chose date"
+        android:textColor="@color/white"
+        app:backgroundTint="#1D3C26"
+        tools:layout_editor_absoluteX="203dp"
+        tools:layout_editor_absoluteY="732dp" />
+
+    <TextView
+        android:id="@+id/dateTv"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:layout_marginBottom="580dp"
+        android:background="@drawable/boxshape3"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="197dp"
+        tools:layout_editor_absoluteY="187dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="329dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginBottom="639dp"
+        android:text="Search Savings"
+        android:textColor="#050505"
+        android:textSize="20dp" />
 
 
 </RelativeLayout>
