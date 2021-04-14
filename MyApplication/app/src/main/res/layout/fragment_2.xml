@@ -18,7 +18,7 @@
         android:layout_marginBottom="571dp"
         android:background="#578F53"
         android:gravity="center"
-        android:text="Type "
+        android:text="Income / Expense "
         android:textColor="@color/black"
         android:textSize="30sp" />
 
@@ -135,9 +135,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="77dp"
-        android:layout_marginRight="77dp"
-        android:layout_marginBottom="514dp"
+        android:layout_marginEnd="75dp"
+        android:layout_marginRight="75dp"
+        android:layout_marginBottom="517dp"
         android:background="@drawable/transparent"
         tools:layout_editor_absoluteX="28dp"
         tools:layout_editor_absoluteY="118dp" />
