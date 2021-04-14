@@ -7,6 +7,12 @@
     <string name="search_income_expense">Search Income/Expense</string>
     <string name="chose_date">Chose date</string>
     <string name="search_savings">Search Savings</string>
+    <string name="add">ADD</string>
+    <string name="income_expense">Income / Expense</string>
+    <string name="date">Date</string>
+    <string name="type">TYPE</string>
+    <string name="amount">AMOUNT</string>
+    <string name="category">CATEGORY</string>
 
 
 </resources>
