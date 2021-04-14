@@ -23,9 +23,7 @@ class GetSaving : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_get_saving)
-
-
-
+        val button = findViewById<Button>(R.id.button_get)
 
         //*******Chose date
 
@@ -94,6 +92,32 @@ class GetSaving : AppCompatActivity() {
 
         dpd.show()
 
+        }
+
+        button.setOnClickListener {
+            db = FirebaseFirestore.getInstance()
+            val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+            recyclerView.layoutManager = LinearLayoutManager(this)
+            val query = db.collection("saving")
+            query
+                    .get()
+                    .addOnCompleteListener { task ->
+                        var list = ArrayList<SavingItem>()
+                        if (task.isSuccessful) {
+                            for (document in task.result!!) {
+                                list.add(
+                                        SavingItem(
+                                                document.get("date") as String,
+                                                document.get("amount") as Double
+                                        )
+                                )
+                            }
+                            var adapter =SavingAdapter(list)
+                            recyclerView.adapter = adapter
+                        } else {
+                            Log.w(ContentValues.TAG, "Error getting documents.", task.exception)
+                        }
+                    }
         }
     }
 
